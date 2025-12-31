@@ -1,0 +1,53 @@
+/* ===== Tipografía y colores específicos ===== */
+body {
+  font-family: 'Poppins' sans-serif;
+}
+
+.text-madera {
+  color: #8B5E3C;
+}
+
+/* ===== Galería “Destacados” aplicado a Productos ===== */
+/* Imagen dentro del wrapper */
+.gallery-item img {
+  width: 100%;
+  height: 220px;             /* misma altura que en “Destacados” */
+  object-fit: cover;         /* recorta sin deformar */
+  transition: transform .3s ease;
+}
+
+/* Efecto hover sobre la imagen */
+.gallery-item:hover img {
+  transform: scale(1.1);
+}
+
+/* Overlay semi-oscuro */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+
+/* Mostrar overlay al hover */
+.gallery-item:hover .overlay {
+  opacity: 1;
+}
+
+/* Icono centrado */
+.overlay i {
+  color: #fff;
+  font-size: 2rem;
+}
+/* Asegura que la imagen nunca provoque scroll interno */
+#modalImagen .modal-body {
+overflow: hidden;
+}
+
+/* Limita el tamaño de la imagen al viewport */
+#imagenExpandida {
+max-height: 90vh;
+max-width: 100%;
+object-fit: contain;
+}

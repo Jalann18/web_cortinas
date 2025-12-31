@@ -1,0 +1,74 @@
+/* =======================
+   NAVBAR STYLES
+======================= */
+.navbar {
+    background-color: #f0f0f0;
+    padding: 2rem 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    z-index: 1030;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .navbar-brand,
+  .navbar-nav .nav-link {
+    color: #8B5E3C !important;
+  }
+  
+  .navbar-brand {
+    font-size: 1.8rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+  
+  .navbar-nav .nav-link {
+    font-size: 1.15rem;
+    margin: 0 1rem;
+  }
+  
+  .navbar-nav .nav-link:hover {
+    color: #5a3b28 !important;
+  }
+  
+  .navbar-toggler {
+    border-color: #8B5E3C;
+  }
+  
+  .navbar-light .navbar-toggler-icon {
+    filter: invert(0.6);
+  }
+  
+  /* Logo scaling */
+  .logo-navbar {
+    max-height: 48px;
+    transform-origin: left center;
+  }
+  
+  @media (min-width: 992px) {
+    .logo-navbar {
+      transform: scale(3.5);
+    }
+  }
+  
+  /* Ajuste responsive para el logo */
+  @media (max-width: 991px) {
+    .navbar {
+      padding: 1rem 0 !important;
+    }
+    .logo-navbar {
+      transform: none !important;
+      max-height: 100px !important;
+      width: auto !important;
+    }
+  }
+  
+  /* Padding general para evitar superposición de navbar */
+  body {
+    padding-top: 110px;
+  }
+  
+  @media (max-width: 991px) {
+    body {
+      padding-top: 80px;
+    }
+  }
+  

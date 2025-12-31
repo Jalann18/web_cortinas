@@ -1,0 +1,353 @@
+/* =======================
+  ROOT & TYPOGRAPHY
+   ======================= */
+  html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-size: 15px;
+  }
+  body {
+    font-family: 'Montserrat', sans-serif;
+  }
+  /* Font utilities */
+  .font-roboto  { font-family: 'Roboto', sans-serif; }
+  .font-poppins { font-family: 'Poppins', sans-serif !important; }
+  
+  
+  /* =======================
+    NAVBAR
+     ======================= */
+  .navbar {
+    background-color: #f0f0f0;
+    padding: 2rem 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    z-index: 1030;
+    font-family: 'Roboto', sans-serif;
+  }
+  .navbar-brand,
+  .navbar-nav .nav-link {
+    color: #8B5E3C !important;
+  }
+  .navbar-brand {
+    font-size: 1.8rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+  .navbar-nav .nav-link {
+    font-size: 1.15rem;
+    margin: 0 1rem;
+  }
+  .navbar-nav .nav-link:hover {
+    color: #5a3b28 !important;
+  }
+  .navbar-toggler {
+    border-color: #8B5E3C;
+  }
+  .navbar-light .navbar-toggler-icon {
+    filter: invert(0.6);
+  }
+  /* Logo scaling */
+  .logo-navbar {
+    max-height: 48px;
+    transform-origin: left center;
+  }
+  @media (min-width: 992px) {
+    .logo-navbar {
+      transform: scale(3.5);
+    }
+  }
+  
+  
+  /* =======================
+    CAROUSEL (INICIO)
+     ======================= */
+  #inicio {
+    padding-top: 118px; /* avoid navbar overlap */
+    overflow: hidden;
+    text-align: center;
+  }
+  .carousel-inner {
+    overflow: hidden;
+  }
+  .carousel-item {
+    height: calc(100vh - 118px) !important;
+    position: relative;
+  }
+  #carruselCortinas img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .carousel-item .overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1;
+  }
+  .carousel-item .contenido-carrusel {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    color: #fff;
+    z-index: 2;
+  }
+  @media (max-width: 768px) {
+    .carousel-item { height: 60vh; }
+    .display-3      { font-size: 1.8rem; }
+    .lead           { font-size: 1rem; }
+    .btn-lg         { font-size: 1rem; padding: .5rem 1rem; }
+  }
+  
+  
+  /* =======================
+    H1 DESTACADO
+     ======================= */
+  #cortinas-a-medida {
+    padding: 60px 20px;
+    background-color: #fff;
+    text-align: center;
+  }
+  #cortinas-a-medida h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #8B5E3C;
+    letter-spacing: 1px;
+    margin-bottom: .5rem;
+  }
+  #cortinas-a-medida p {
+    font-size: 1.2rem;
+    color: #6c757d;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  
+  /* =======================
+    PRODUCTOS / GALERÍA
+     ======================= */
+  #galeria h2 {
+    font-family: 'Poppins', sans-serif !important;
+    color: #6A3D1A;
+  }
+  #galeria p {
+    color: #6c757d;
+  }
+  .card {
+    border-radius: 0;
+    transform: scale(.9);
+    transform-origin: center top;
+    transition: transform .3s ease;
+  }
+  .card-img-top {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 0;
+  }
+  .card-title {
+    font-family: 'Poppins', sans-serif !important;
+    color: #6A3D1A;
+    font-size: 1.3rem;
+    letter-spacing: .5px;
+  }
+  /* Subtle hover underline button */
+  .btn-ver-trabajos {
+    all: unset;
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 1.1rem;
+    color: #6A3D1A;
+    align-self: flex-start;
+    position: relative;
+    cursor: pointer;
+    padding-bottom: .25rem;
+    transition: color .08s;
+  }
+  .btn-ver-trabajos::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 4px;
+    background-color: #6A3D1A;
+    transition: bottom .08s;
+  }
+  .btn-ver-trabajos:hover {
+    color: #8B5E3C;
+  }
+  .btn-ver-trabajos:hover::after {
+    bottom: -2px;
+  }
+  
+  
+  /* =======================
+    SERVICIOS
+     ======================= */
+  #servicios {
+    position: relative;
+    background: url('/static/proyectos/fondo-servicios.jpg') fixed center/cover no-repeat;
+    color: #fff;
+    overflow: hidden;
+  }
+  #servicios::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0,0,0,0.4);
+  }
+  #servicios .container {
+    position: relative;
+    z-index: 1;
+  }
+  #servicios h2,
+  #servicios h5,
+  #servicios p,
+  #servicios .card-title {
+    color: #fff;
+  }
+  #servicios .card {
+    background-color: rgba(0,0,0,0.5);
+  }
+  
+  
+  /* =======================
+    GALERÍA INTERACTIVA
+     ======================= */
+  #destacados h2{
+    color: #6A3D1A;
+  }
+  .gallery-item {
+    cursor: pointer;
+    overflow: hidden;
+  }
+  .gallery-item img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: transform .3s ease;
+  }
+  .gallery-item:hover img {
+    transform: scale(1.1);
+  }
+  .gallery-item .overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0,0,0,0.4);
+    opacity: 0;
+    transition: opacity .3s ease;
+  }
+  .gallery-item:hover .overlay {
+    opacity: 1;
+  }
+  
+  
+  /* =======================
+    MODAL IMAGEN
+     ======================= */
+  #modalImagen .modal-dialog {
+    max-width: 90vw;
+    margin: 1.5rem auto;
+  }
+  #modalImagen .modal-body {
+    padding: 0;
+    text-align: center;
+  }
+  #imagenExpandida {
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+  }
+  
+  
+  /* =======================
+    SOBRE NOSOTROS
+     ======================= */
+  #sobre-nosotros {
+    background-color: #f8f9fa;
+    padding: 2rem 0;
+  }
+  #sobre-nosotros .text-madera {
+    color: #8B5E3C;
+  }
+  
+  #sobre-nosotros .img {
+    max-height: 50px;
+  }
+  /* =======================
+    FAQ + CONTACTO (END)
+     ======================= */
+  #end {
+    position: relative;
+    background: url('/static/proyectos/ph2.jpg') fixed center/cover no-repeat;
+    min-height: 70vh;
+    padding: 2rem 0;
+    color: #fff;
+    overflow: hidden;
+  }
+  #end::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0,0,0,0.5);
+  }
+  #end .container {
+    position: relative;
+    z-index: 1;
+  }
+  
+  
+  /* =======================
+    FOOTER
+     ======================= */
+  .footer-logo {
+    max-height: 160px;
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    top: -30px;
+    filter: brightness(0) invert(1);
+  }
+  footer a:hover {
+    text-decoration: underline;
+  }
+  
+  
+  /* =======================
+    UTILITIES
+     ======================= */
+  .text-justificado { text-align: justify!important; }
+  .btn-solo-underline {
+    all: unset;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.7rem;
+    color: #fff;
+    border-bottom: 2px solid #fff;
+    cursor: pointer;
+    transition: .3s;
+  }
+  .btn-solo-underline:hover {
+    color: #f8f9fa;
+    border-bottom-color: #f8f9fa;
+  }
+  
+  
+  /* =======================
+    RESPONSIVE LOGO
+     ======================= */
+  @media (max-width: 991px) {
+    .navbar {
+      padding: 1rem 0 !important;
+    }
+    .logo-navbar {
+      transform: none !important;
+      max-height: 100px !important;
+      width: auto !important;
+    }
+  }
+  

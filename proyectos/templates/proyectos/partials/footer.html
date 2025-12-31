@@ -1,0 +1,47 @@
+{% load static %}
+<footer class="bg-dark text-light pt-5 pb-3">
+  <div class="container">
+    <div class="row">
+      <!-- Logo -->
+      <div class="col-lg-3 text-center text-lg-start">
+        <a href="{% url 'home' %}#inicio">
+          <img src="{% static 'proyectos/logo_ccs.png' %}" alt="Cortinas Hanga Roa" class="img-fluid mb-2 footer-logo">
+        </a>
+      </div>
+
+      <!-- Cortinas en Hanga Roa -->
+      <div class="col-lg-3">
+        <h5>Cortinas en Hanga Roa</h5>
+        <ul class="list-unstyled small">
+          <li><a href="{% url 'home' %}#galeria" class="text-light text-decoration-none">Cortinas de madera</a></li>
+          <li><a href="{% url 'home' %}#servicios" class="text-light text-decoration-none">Cortinas personalizadas</a></li>
+          <li><a href="{% url 'home' %}#sobre-nosotros" class="text-light text-decoration-none">Instalación en Isla de Pascua</a></li>
+        </ul>
+      </div>
+
+      <!-- Enlaces -->
+      <div class="col-lg-3">
+        <h5>Enlaces</h5>
+        <ul class="list-unstyled small">
+          <li><a href="{% url 'home' %}#inicio" class="text-light text-decoration-none">Inicio</a></li>
+          <li><a href="{% url 'home' %}#galeria" class="text-light text-decoration-none">Productos</a></li>
+          <li><a href="{% url 'home' %}#end" class="text-light text-decoration-none">Contacto</a></li>
+        </ul>
+      </div>
+
+      <!-- Redes sociales -->
+      <div class="col-lg-3">
+        <h5>Síguenos</h5>
+        <ul class="list-inline">
+          <li class="list-inline-item"><a href="#" class="text-light fs-4"><i class="bi bi-facebook"></i></a></li>
+          <li class="list-inline-item"><a href="#" class="text-light fs-4"><i class="bi bi-instagram"></i></a></li>
+          <li class="list-inline-item"><a href="#" class="text-light fs-4"><i class="bi bi-whatsapp"></i></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="text-center small pt-0 mt-0">
+      &copy; {% now "Y" %} Cortinas Hanga Roa | Expertos en cortinas de madera personalizadas.
+    </div>
+  </div>
+</footer>

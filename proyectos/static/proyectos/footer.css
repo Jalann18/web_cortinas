@@ -1,0 +1,61 @@
+/* =======================
+   FOOTER STYLES
+======================= */
+footer {
+    background-color: #212529;
+    color: #f8f9fa;
+    padding-top: 5rem;
+    padding-bottom: 3rem;
+    font-size: 0.95rem;
+  }
+  
+  .footer-logo {
+    max-height: 160px;
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    top: -30px;
+    filter: brightness(0) invert(1);
+  }
+  
+  footer h5 {
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  footer ul {
+    padding: 0;
+    list-style: none;
+  }
+  
+  footer ul li {
+    margin-bottom: 0.5rem;
+  }
+  
+  footer a {
+    color: #f8f9fa;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+  
+  footer a:hover {
+    text-decoration: underline;
+  }
+  
+  footer .list-inline-item {
+    margin-right: 1rem;
+  }
+  
+  footer .list-inline-item i {
+    transition: transform 0.3s ease;
+  }
+  
+  footer .list-inline-item i:hover {
+    transform: scale(1.2);
+  }
+  
+  footer .small {
+    margin-top: 2rem;
+    font-size: 0.85rem;
+  }
+  
