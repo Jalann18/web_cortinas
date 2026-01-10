@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- ===== SEO POWER‑UPS ===== -->
+  <!-- ===== SEO POWER-UPS ===== -->
   <title>Cortinas Hanga Roa | Cortinas de Madera a Medida</title>
   <meta name="description" content="Desde 1980 diseñamos e instalamos cortinas de madera a medida en Hanga Roa. Visita gratuita, instalación profesional y calidad artesanal.">
   <meta name="keywords" content="Cortinas Hanga Roa, cortinas madera, cortinas a medida, cortinas Isla de Pascua, instalación cortinas, cortinas artesanales, cortinas personalizadas">
@@ -14,7 +14,7 @@
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://www.hanga-roa.cl/">
 
-  <!-- ===== OPEN GRAPH ===== -->
+  <!-- ===== OPEN GRAPH ===== -->
   <meta property="og:title" content="Cortinas Hanga Roa | Cortinas de Madera a Medida">
   <meta property="og:description" content="Cortinas de madera hechas a medida con instalación profesional en Hanga Roa. Más de 40 años de experiencia artesanal.">
   <meta property="og:image" content="{% static 'proyectos/og-hanga-roa.jpg' %}">
@@ -105,11 +105,9 @@
 <section id="galeria" class="py-4 bg-white">
   <div class="container-fluid px-3">
     <h2 class="mb-5 px-3">Nuestros <strong>PRODUCTOS</strong></h2>
-    <!-- Solo cambiamos row y cols: centramos y pasamos a 3 columnas en lg -->
     <div class="row justify-content-center g-1">
       {% for producto in productos %}
       <div class="col-12 col-sm-6 col-lg-4">
-        <!-- === TU CARD ORIGINAL, SIN TOCAR === -->
         <div class="card border-0 h-100 shadow-lg rounded-2xl overflow-hidden d-flex flex-column">
           <img src="{{ producto.imagen.url }}"
                class="card-img-top"
@@ -123,7 +121,6 @@
             </a>
           </div>
         </div>
-        <!-- === FIN DE TU CARD ORIGINAL === -->
       </div>
       {% endfor %}
     </div>
@@ -174,7 +171,8 @@
     <div class="row g-1">
       {% for d in destacados %}
       <div class="col-6 col-md-4 col-lg-3">
-        <div class="gallery-item position-relative overflow-hidden shadow-sm">
+        <!-- ✅ cambio mínimo: data-index -->
+        <div class="gallery-item position-relative overflow-hidden shadow-sm" data-index="{{ forloop.counter0 }}">
           <img src="{{ d.imagen.url }}" alt="{{ d.titulo }}" class="img-fluid">
           <div class="overlay position-absolute top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center">
             <i class="bi bi-arrows-fullscreen text-white fs-2"></i>
@@ -192,12 +190,10 @@
 <section id="sobre-nosotros" class="py-5 bg-light">
   <div class="container">
     <div class="row gx-5 align-items-start">
-      <!-- Imagen -->
       <div class="col-md-6 order-md-2 mb-4 mb-md-0 text-end">
-        <img src="{% static 'proyectos/sobre-nosotros.jpg' %}" alt="Equipo trabajando" class="img-fluid rounded shadow"  style="height: 350px;">
+        <img src="{% static 'proyectos/sobre-nosotros.jpg' %}" alt="Equipo trabajando" class="img-fluid rounded shadow" style="height: 350px;">
       </div>
-      <!-- Texto -->
-      <div class=" texto col-md-6 order-md-1">
+      <div class="texto col-md-6 order-md-1">
         <h2 class="fw-bold mb-3 text-madera">Sobre Cortinas Hanga Roa</h2>
         <p class="lead text-secondary mb-4">
           Desde 1980, fusionamos tradición y diseño moderno para vestir tus ventanas con cortinas artesanales de primera calidad.
@@ -217,12 +213,10 @@
   <div class="container">
     <h2 class="text-white text-center mb-5">¿En qué podemos ayudarte?</h2>
     <div class="row gx-5 gy-4 align-items-start">
-      <!-- FAQs -->
       <div class="col-lg-5">
         <div class="p-4 rounded shadow-sm">
           <h3 class="mb-4 text-center text-white">Preguntas frecuentes</h3>
           <div class="accordion accordion-flush" id="faqAccordion">
-            <!-- Pregunta 1 -->
             <div class="accordion-item">
               <h2 class="accordion-header" id="faq-headingOne">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-collapseOne" aria-expanded="false" aria-controls="faq-collapseOne">
@@ -233,7 +227,6 @@
                 <div class="accordion-body">Nuestro equipo llega hasta tu casa sin costo para tomar medidas precisas y asesorarte.</div>
               </div>
             </div>
-            <!-- Pregunta 2 -->
             <div class="accordion-item">
               <h2 class="accordion-header" id="faq-headingTwo">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-collapseTwo" aria-expanded="false" aria-controls="faq-collapseTwo">
@@ -244,7 +237,6 @@
                 <div class="accordion-body">Normalmente en 1–2 días hábiles después de la fabricación, según complejidad.</div>
               </div>
             </div>
-            <!-- Pregunta 3 -->
             <div class="accordion-item">
               <h2 class="accordion-header" id="faq-headingThree">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-collapseThree" aria-expanded="false" aria-controls="faq-collapseThree">
@@ -259,7 +251,6 @@
         </div>
       </div>
 
-      <!-- Formulario de contacto -->
       <div class="col-lg-6">
         <div class="p-4 rounded shadow-sm">
           <h3 class="mb-4 text-center text-white">Contáctanos</h3>
@@ -298,24 +289,21 @@
 <footer class="bg-dark text-light pt-5 pb-3">
   <div class="container">
     <div class="row">
-      <!-- Logo -->
       <div class="col-lg-3 text-center text-lg-start">
         <a href="#inicio">
           <img src="{% static 'proyectos/logo_ccs.png' %}" alt="Cortinas Hanga Roa" class="img-fluid mb-2 footer-logo">
         </a>
       </div>
 
-      <!-- Cortinas en Hanga Roa -->
       <div class="col-lg-3">
         <h5>Cortinas en Hanga Roa</h5>
         <ul class="list-unstyled small">
-          <li><a href="#galeria" class="text-light text-decoration-none">Cortinas de madera</a></li>
-          <li><a href="#servicios" class="text-light text-decoration-none">Cortinas personalizadas</a></li>
-          <li><a href="#sobre-nosotros" class="text-light text-decoration-none">Instalación en Isla de Pascua</a></li>
+          <li><a href="#galeria" class="text-light text-decoration-none">Cortinas de Madera</a></li>
+          <li><a href="#servicios" class="text-light text-decoration-none">Instalación Personalizada</a></li>
+          <li><a href="#sobre-nosotros" class="text-light text-decoration-none"></a></li>
         </ul>
       </div>
 
-      <!-- Enlaces -->
       <div class="col-lg-3">
         <h5>Enlaces</h5>
         <ul class="list-unstyled small">
@@ -325,7 +313,6 @@
         </ul>
       </div>
 
-      <!-- Redes sociales -->
       <div class="col-lg-3">
         <h5>Síguenos</h5>
         <ul class="list-inline">
@@ -342,41 +329,100 @@
   </div>
 </footer>
 
-<!-- ============ MODAL IMAGEN ============ -->
+<!-- ============ MODAL IMAGEN (✅ con botones overlay) ============ -->
 <div class="modal fade" id="modalImagen" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content bg-transparent border-0">
       <div class="modal-body p-0">
+        <button type="button" class="modal-nav modal-prev" aria-label="Anterior">
+          <i class="bi bi-chevron-left"></i>
+        </button>
+
         <img src="" id="imagenExpandida" class="img-fluid rounded shadow" alt="Imagen destacada">
+
+        <button type="button" class="modal-nav modal-next" aria-label="Siguiente">
+          <i class="bi bi-chevron-right"></i>
+        </button>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ============ JS ============ -->
+<!-- ============ JS (✅ reemplazar completo) ============ -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const items = document.querySelectorAll('.gallery-item');
-    const modal = new bootstrap.Modal(document.getElementById('modalImagen'));
+    const items = Array.from(document.querySelectorAll('.gallery-item'));
+    const modalElement = document.getElementById('modalImagen');
+    const modal = new bootstrap.Modal(modalElement);
     const imagenExpandida = document.getElementById('imagenExpandida');
-    let lastFocusedElement = null; // <- Vamos a guardar dónde estaba el focus antes
 
-    items.forEach(item => {
+    const btnPrev = modalElement.querySelector('.modal-prev');
+    const btnNext = modalElement.querySelector('.modal-next');
+
+    // Focus restore (NO tocar)
+    let lastFocusedElement = null;
+
+    // Lista de imágenes (en el orden del DOM)
+    const srcList = items.map(item => item.querySelector('img')?.src).filter(Boolean);
+
+    // Índice actual dentro del modal
+    let currentIndex = 0;
+
+    // índice circular
+    const wrapIndex = (i) => {
+      const n = srcList.length;
+      if (n === 0) return 0;
+      return (i % n + n) % n;
+    };
+
+    const setImageByIndex = (i) => {
+      if (srcList.length === 0) return;
+      currentIndex = wrapIndex(i);
+      imagenExpandida.src = srcList[currentIndex];
+    };
+
+    // Click -> set src -> show (mismo flujo)
+    items.forEach((item) => {
       item.addEventListener('click', () => {
-        const img = item.querySelector('img');
-        imagenExpandida.src = img.src;
-        lastFocusedElement = document.activeElement; // Guardamos el que tenía foco
+        const idx = Number(item.dataset.index ?? 0);
+        lastFocusedElement = document.activeElement;
+        setImageByIndex(idx);
         modal.show();
       });
     });
 
-    // Cuando se cierre el modal, volvemos el foco al último elemento que lo tenía
-    const modalElement = document.getElementById('modalImagen');
+    // Botones
+    btnPrev?.addEventListener('click', (e) => {
+      e.preventDefault();
+      setImageByIndex(currentIndex - 1);
+    });
+
+    btnNext?.addEventListener('click', (e) => {
+      e.preventDefault();
+      setImageByIndex(currentIndex + 1);
+    });
+
+    // Teclado (solo cuando modal está abierto)
+    const onKeyDown = (e) => {
+      if (e.key === 'ArrowLeft') setImageByIndex(currentIndex - 1);
+      if (e.key === 'ArrowRight') setImageByIndex(currentIndex + 1);
+    };
+
+    modalElement.addEventListener('shown.bs.modal', () => {
+      document.addEventListener('keydown', onKeyDown);
+    });
+
+    // Focus restore (NO tocar)
     modalElement.addEventListener('hidden.bs.modal', () => {
       if (lastFocusedElement) {
         lastFocusedElement.focus();
       }
+    });
+
+    // Cleanup (separado)
+    modalElement.addEventListener('hidden.bs.modal', () => {
+      document.removeEventListener('keydown', onKeyDown);
     });
   });
 </script>
@@ -392,4 +438,3 @@
 
 </body>
 </html>
-
