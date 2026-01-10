@@ -248,19 +248,31 @@ body {
 
 
 /* =======================
-  MODAL IMAGEN  (CORREGIDO)
+  MODAL IMAGEN (OPTIMIZADO)
    ======================= */
-#modalImagen .modal-dialog {
+#modalImagen{
+  --btn-size: 52px;
+  --btn-radius: 10px;
+  --close-size: 44px;
+  --bd: 2px solid rgba(255,255,255,.70);
+  --bg: rgba(0,0,0,.28);
+  --bg-hover: rgba(0,0,0,.45);
+  --shadow: 0 10px 22px rgba(0,0,0,.28);
+  --focus: 2px solid rgba(255,255,255,.85);
+  --blur: blur(4px);
+}
+
+#modalImagen .modal-dialog{
   max-width: 90vw;
   margin: 1.5rem auto;
 }
 
-#modalImagen .modal-body {
+#modalImagen .modal-body{
   padding: 0;
   text-align: center;
 }
 
-/* ✅ wrap que toma el ancho real de la imagen (no del modal entero) */
+/* wrap toma el ancho real de la imagen */
 #modalImagen .modal-image-wrap{
   position: relative;
   display: inline-block;
@@ -268,48 +280,45 @@ body {
 }
 
 /* Imagen grande igual */
-#imagenExpandida {
+#modalImagen #imagenExpandida{
   max-width: 100%;
   max-height: 90vh;
   object-fit: contain;
   display: block;
 }
 
-/* ✅ Flechas estilo “tu ejemplo” (cuadro con borde + fondo suave) */
-#modalImagen .modal-nav{
-  position: absolute !important;
-  top: 50%;
-  transform: translateY(-50%);
-
-  width: 52px;
-  height: 52px;
-
-  border: 2px solid rgba(255,255,255,.70);
-  border-radius: 10px;
-
-  background: rgba(0,0,0,.28);
-  color: #fff;
-
+/* ========== Controles overlay (base) ========== */
+#modalImagen .modal-nav,
+#modalImagen .modal-close-btn{
+  position: absolute;
   display: grid;
   place-items: center;
-
-  z-index: 5;
   cursor: pointer;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
+  box-shadow: var(--shadow);
+  backdrop-filter: var(--blur);
+  transition: transform .12s ease, opacity .12s ease, background .12s ease;
+}
 
-  box-shadow: 0 10px 22px rgba(0,0,0,.28);
-  backdrop-filter: blur(4px);
-
+#modalImagen .modal-nav{
+  top: 50%;
+  transform: translateY(-50%);
+  width: var(--btn-size);
+  height: var(--btn-size);
+  border: var(--bd);
+  border-radius: var(--btn-radius);
+  background: var(--bg);
+  color: #fff;
+  z-index: 5;
   opacity: .9;
-  transition: opacity .12s ease, background .12s ease, transform .12s ease;
 }
 
 #modalImagen .modal-prev{ left: 10px; }
 #modalImagen .modal-next{ right: 10px; }
 
 #modalImagen .modal-nav:hover{
-  background: rgba(0,0,0,.45);
+  background: var(--bg-hover);
   opacity: 1;
   transform: translateY(-50%) scale(1.03);
 }
@@ -318,8 +327,9 @@ body {
   transform: translateY(-50%) scale(.98);
 }
 
-#modalImagen .modal-nav:focus-visible{
-  outline: 2px solid rgba(255,255,255,.85);
+#modalImagen .modal-nav:focus-visible,
+#modalImagen .modal-close-btn:focus-visible{
+  outline: var(--focus);
   outline-offset: 3px;
 }
 
@@ -328,6 +338,36 @@ body {
   line-height: 1;
   text-shadow: 0 2px 10px rgba(0,0,0,.55);
 }
+
+/* ========== Botón cerrar ========== */
+#modalImagen .modal-close-btn{
+  top: 10px;
+  right: 10px;
+  width: var(--close-size);
+  height: var(--close-size);
+  border-radius: 12px;
+
+  /* Bootstrap btn-close a veces mete cosas: */
+  padding: 0;
+  margin: 0;
+  line-height: 0;
+  float: none;
+
+  background: rgba(0,0,0,.35);
+  border: var(--bd);
+  z-index: 20;
+  opacity: .95;
+}
+
+#modalImagen .modal-close-btn:hover{
+  background: rgba(0,0,0,.50);
+  opacity: 1;
+}
+
+#modalImagen .modal-close-btn:active{
+  transform: scale(.98);
+}
+
 
 
 /* =======================
