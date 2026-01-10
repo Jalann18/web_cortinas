@@ -289,8 +289,8 @@ body {
 
 /* ========== Controles overlay (base) ========== */
 #modalImagen .modal-nav,
+#modalImagen .modal-close-fixed,
 #modalImagen .modal-close-btn{
-  position: absolute;
   display: grid;
   place-items: center;
   cursor: pointer;
@@ -298,17 +298,19 @@ body {
   -webkit-tap-highlight-color: transparent;
   box-shadow: var(--shadow);
   backdrop-filter: var(--blur);
-  transition: transform .12s ease, opacity .12s ease, background .12s ease;
+  transition: transform .12s ease, opacity .12s ease, background-color .12s ease;
 }
 
+/* ========== Flechas ========== */
 #modalImagen .modal-nav{
+  position: absolute;
   top: 50%;
   transform: translateY(-50%);
   width: var(--btn-size);
   height: var(--btn-size);
   border: var(--bd);
   border-radius: var(--btn-radius);
-  background: var(--bg);
+  background-color: var(--bg);
   color: #fff;
   z-index: 5;
   opacity: .9;
@@ -318,7 +320,7 @@ body {
 #modalImagen .modal-next{ right: 10px; }
 
 #modalImagen .modal-nav:hover{
-  background: var(--bg-hover);
+  background-color: var(--bg-hover);
   opacity: 1;
   transform: translateY(-50%) scale(1.03);
 }
@@ -328,6 +330,7 @@ body {
 }
 
 #modalImagen .modal-nav:focus-visible,
+#modalImagen .modal-close-fixed:focus-visible,
 #modalImagen .modal-close-btn:focus-visible{
   outline: var(--focus);
   outline-offset: 3px;
@@ -339,36 +342,54 @@ body {
   text-shadow: 0 2px 10px rgba(0,0,0,.55);
 }
 
-/* ========== Botón cerrar ========== */
+/* ========== Botón cerrar (FIJO EN PANTALLA) ========== */
+/* ✅ Soporta tu HTML actual: .modal-close-fixed
+   ✅ También soporta .modal-close-btn por si lo usaste antes */
+#modalImagen .modal-close-fixed,
 #modalImagen .modal-close-btn{
-  top: 10px;
-  right: 10px;
+  position: fixed;          /* ✅ pantalla, no imagen */
+  top: 14px;
+  right: 14px;
+  z-index: 3000;
+
   width: var(--close-size);
   height: var(--close-size);
   border-radius: 12px;
 
-  /* Bootstrap btn-close a veces mete cosas: */
   padding: 0;
   margin: 0;
   line-height: 0;
   float: none;
 
-  background: rgba(0,0,0,.35);
+  /* ✅ NO usar 'background:' (eso mata la X). */
+  background-color: rgba(0,0,0,.35);
   border: var(--bd);
-  z-index: 20;
   opacity: .95;
+
+  /* ✅ por si algún CSS externo te pisa el icono */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 1em;
 }
 
+#modalImagen .modal-close-fixed:hover,
 #modalImagen .modal-close-btn:hover{
-  background: rgba(0,0,0,.50);
+  background-color: rgba(0,0,0,.50);
   opacity: 1;
 }
 
+#modalImagen .modal-close-fixed:active,
 #modalImagen .modal-close-btn:active{
   transform: scale(.98);
 }
 
-
+/* ✅ “seguro” extra: fuerza la X blanca de Bootstrap si algo la borra */
+#modalImagen .btn-close.btn-close-white.modal-close-fixed,
+#modalImagen .btn-close.btn-close-white.modal-close-btn{
+  filter: none;
+  opacity: 1;
+  background-image: var(--bs-btn-close-bg);
+}
 
 /* =======================
   SOBRE NOSOTROS
