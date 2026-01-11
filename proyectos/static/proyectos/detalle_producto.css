@@ -1,60 +1,56 @@
 /* =======================
   BASE
-   ======================= */
-body {
+======================= */
+body{
   font-family: 'Poppins', sans-serif;
 }
 
-.text-madera {
-  color: #8B5E3C;
-}
-
 /* =======================
-  GALERÍA (igual Home)
-   ======================= */
-.gallery-item {
+  GALERÍA
+======================= */
+.gallery-item{
   cursor: pointer;
   overflow: hidden;
 }
 
-.gallery-item img {
+.gallery-item img{
   width: 100%;
   height: 220px;
   object-fit: cover;
   transition: transform .3s ease;
 }
 
-.gallery-item:hover img {
+.gallery-item:hover img{
   transform: scale(1.1);
 }
 
-/* ✅ Scopiado para no romper overlays de otras secciones */
-.gallery-item .overlay {
+/* Overlay scopiado */
+.gallery-item .overlay{
   position: absolute;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0,0,0,0.4);
   opacity: 0;
   transition: opacity .3s ease;
 }
 
-.gallery-item:hover .overlay {
+.gallery-item:hover .overlay{
   opacity: 1;
 }
 
-.gallery-item .overlay i {
+.gallery-item .overlay i{
   color: #fff;
   font-size: 2rem;
 }
 
 /* =======================
-  MODAL IMAGEN (idéntico Home)
-   ======================= */
+  MODAL IMAGEN (IGUAL HOME)
+  - El “all: unset” evita que Bootstrap te lo deje como botón cuadrado
+======================= */
 #modalImagen{
-  --nav-size: 38px;         /* flechas más chicas */
+  --nav-size: 38px;
   --nav-radius: 8px;
   --nav-bd: 1px solid rgba(255,255,255,.75);
-
-  --close-size: 34px;       /* X más chica */
+  --close-size: 34px;
 }
 
 #modalImagen .modal-dialog{
@@ -65,14 +61,15 @@ body {
 #modalImagen .modal-body{
   padding: 0;
   text-align: center;
-  overflow: hidden; /* evita scroll interno */
+  overflow: hidden; /* sin scroll interno */
 }
 
-/* wrap toma el ancho real de la imagen */
+/* wrap = ancho real de la imagen */
 #modalImagen .modal-image-wrap{
   position: relative;
   display: inline-block;
   max-width: 100%;
+  line-height: 0; /* ✅ elimina espacios/“saltos” raros */
 }
 
 #modalImagen #imagenExpandida{
@@ -82,11 +79,15 @@ body {
   display: block;
 }
 
-/* Flechas (pegadas a la imagen) */
+/* Flechas pegadas a la imagen */
 #modalImagen .modal-nav{
+  all: unset;              /* ✅ mata el botón cuadrado por defecto */
+  cursor: pointer;
+
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+
   width: var(--nav-size);
   height: var(--nav-size);
 
@@ -119,13 +120,18 @@ body {
   transform: translateY(-50%) scale(.98);
 }
 
+#modalImagen .modal-nav:focus-visible{
+  outline: 2px solid rgba(255,255,255,.85);
+  outline-offset: 3px;
+}
+
 #modalImagen .modal-nav i{
   font-size: 1.6rem;
   line-height: 1;
   text-shadow: none;
 }
 
-/* Cerrar fijo (solo X blanca, sin caja) */
+/* X fija sin caja */
 #modalImagen .modal-close-fixed{
   position: fixed;
   top: 14px;
@@ -158,9 +164,4 @@ body {
 
 #modalImagen .modal-close-fixed:hover{
   opacity: .85;
-}
-
-#modalImagen .modal-close-fixed:focus-visible{
-  outline: 2px solid rgba(255,255,255,.85);
-  outline-offset: 3px;
 }

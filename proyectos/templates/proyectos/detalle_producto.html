@@ -3,28 +3,32 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8">
-    <!-- ¡Este meta es clave para móviles! -->
+    <!-- Clave para móviles -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <title>{{ producto.nombre }} – Cortinas CCS</title>
-    <!-- ===== TIPOGRAFÍAS ===== -->
+
+    <!-- Tipografías -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
-    <!-- Bootstrap y tus CSS -->
+    <!-- Bootstrap + Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <!-- Tus CSS -->
     <link rel="stylesheet" href="{% static 'proyectos/navbar.css' %}">
     <link rel="stylesheet" href="{% static 'proyectos/footer.css' %}">
-    <link rel="stylesheet" href="{% static 'proyectos/detalle_producto.css' %}">
+    <!-- ✅ cache buster para que SI o SI cargue el CSS nuevo en prod -->
+    <link rel="stylesheet" href="{% static 'proyectos/detalle_producto.css' %}?v=2">
   </head>
 
   <body class="d-flex flex-column min-vh-100 bg-white" style="font-family: 'Montserrat', sans-serif;">
 
     {% include 'proyectos/partials/navbar.html' %}
 
-    <!-- ====== HEADER DEL PRODUCTO ====== -->
+    <!-- HEADER -->
     <header class="bg-dark text-white overflow-hidden">
       <div class="position-relative w-100" style="height: 45vh;">
         {% if producto.header_image %}
@@ -32,6 +36,7 @@
         {% else %}
           <img src="{{ producto.imagen.url }}" class="img-fluid w-100 h-100 object-fit-cover" alt="{{ producto.nombre }}">
         {% endif %}
+
         <div class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center bg-dark bg-opacity-50 text-center p-3">
           <div class="container-sm">
             <h1 class="display-6 d-none d-md-block">{{ producto.nombre }}</h1>
@@ -42,12 +47,13 @@
       </div>
     </header>
 
-    <!-- ====== GALERÍA DEL PRODUCTO ====== -->
+    <!-- GALERÍA -->
     <main class="container flex-grow-1 py-5 pt-0">
       <div class="row g-2 mt-4">
         {% for imagen in imagenes %}
           <div class="col-6 col-md-4 col-lg-4">
-            <div class="gallery-item position-relative overflow-hidden shadow-sm">
+            <div class="gallery-item position-relative overflow-hidden shadow-sm"
+                 data-index="{{ forloop.counter0 }}">
               <img src="{{ imagen.imagen.url }}" alt="Imagen de {{ producto.nombre }}" class="img-fluid">
               <div class="overlay position-absolute top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center">
                 <i class="bi bi-arrows-fullscreen text-white fs-2"></i>
@@ -67,49 +73,43 @@
     {% if producto.id == 1 %}
       <section class="colores py-3 bg-white pb-5">
         <div class="container">
-          <div class="container">
-            <div class="container">
-              <h2 class="text-center mb-4 pb-5">Colores disponibles</h2>
-              <div class="row justify-content-center g-0">
-                <div class="col-6 col-md-3 text-center mb-4">
-                  <div class="rounded-circle mx-auto border border-dark shadow-sm"
-                      style="width: 80px; height: 80px; background-color: #f5f5f5;">
-                  </div>
-                  <div class="mt-2 fw-semibold pb-4">Blanco Invierno</div>
-                  <button type="button" class="btn btn-outline-dark">Cotizar</button>
-                </div>
-                <div class="col-6 col-md-3 text-center mb-4">
-                  <div class="rounded-circle mx-auto border border-dark shadow-sm"
-                      style="width: 80px; height: 80px; background-color: #b86b31;">
-                  </div>
-                  <div class="mt-2 fw-semibold pb-4">Alerce</div>
-                  <button type="button" class="btn btn-outline-dark">Cotizar</button>
-                </div>
-                <div class="col-6 col-md-3 text-center mb-4">
-                  <div class="rounded-circle mx-auto border border-dark shadow-sm"
-                      style="width: 80px; height: 80px; background-color: #c19a6b;">
-                  </div>
-                  <div class="mt-2 fw-semibold pb-4">Roble</div>
-                  <button type="button" class="btn btn-outline-dark">Cotizar</button>
-                </div>
-                <div class="col-6 col-md-3 text-center mb-4">
-                  <div class="rounded-circle mx-auto border border-dark shadow-sm"
-                      style="width: 80px; height: 80px; background-color: #8b5e3c;">
-                  </div>
-                  <div class="mt-2 fw-semibold pb-4">Nogal</div>
-                  <button type="button" class="btn btn-outline-dark">Cotizar</button>
-                </div>
-              </div>
+          <h2 class="text-center mb-4 pb-5">Colores disponibles</h2>
+
+          <div class="row justify-content-center g-0">
+            <div class="col-6 col-md-3 text-center mb-4">
+              <div class="rounded-circle mx-auto border border-dark shadow-sm"
+                   style="width: 80px; height: 80px; background-color: #f5f5f5;"></div>
+              <div class="mt-2 fw-semibold pb-4">Blanco Invierno</div>
+              <button type="button" class="btn btn-outline-dark">Cotizar</button>
+            </div>
+
+            <div class="col-6 col-md-3 text-center mb-4">
+              <div class="rounded-circle mx-auto border border-dark shadow-sm"
+                   style="width: 80px; height: 80px; background-color: #b86b31;"></div>
+              <div class="mt-2 fw-semibold pb-4">Alerce</div>
+              <button type="button" class="btn btn-outline-dark">Cotizar</button>
+            </div>
+
+            <div class="col-6 col-md-3 text-center mb-4">
+              <div class="rounded-circle mx-auto border border-dark shadow-sm"
+                   style="width: 80px; height: 80px; background-color: #c19a6b;"></div>
+              <div class="mt-2 fw-semibold pb-4">Roble</div>
+              <button type="button" class="btn btn-outline-dark">Cotizar</button>
+            </div>
+
+            <div class="col-6 col-md-3 text-center mb-4">
+              <div class="rounded-circle mx-auto border border-dark shadow-sm"
+                   style="width: 80px; height: 80px; background-color: #8b5e3c;"></div>
+              <div class="mt-2 fw-semibold pb-4">Nogal</div>
+              <button type="button" class="btn btn-outline-dark">Cotizar</button>
             </div>
           </div>
         </div>
       </section>
     {% endif %}
 
-    <!-- ====== MODAL PARA AMPLIAR IMÁGENES (MISMO QUE HOME) ====== -->
+    <!-- MODAL (idéntico Home) -->
     <div class="modal fade" id="modalImagen" tabindex="-1" aria-hidden="true">
-
-      <!-- ✅ Cerrar fijo en la esquina de la pantalla -->
       <button type="button"
               class="btn-close btn-close-white modal-close-fixed"
               data-bs-dismiss="modal"
@@ -118,7 +118,6 @@
       <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content bg-transparent border-0">
           <div class="modal-body p-0 text-center">
-
             <div class="modal-image-wrap">
               <button type="button" class="modal-nav modal-prev" aria-label="Anterior">
                 <i class="bi bi-chevron-left"></i>
@@ -130,33 +129,29 @@
                 <i class="bi bi-chevron-right"></i>
               </button>
             </div>
-
           </div>
         </div>
       </div>
     </div>
 
-    <!-- ====== BOOTSTRAP JS ====== -->
+    <!-- JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- ====== JS PARA EL MODAL (MISMO QUE HOME) ====== -->
     <script>
       document.addEventListener('DOMContentLoaded', () => {
         const items = Array.from(document.querySelectorAll('.gallery-item'));
         const modalElement = document.getElementById('modalImagen');
+        if (!modalElement || items.length === 0) return;
+
         const modal = new bootstrap.Modal(modalElement);
         const imagenExpandida = document.getElementById('imagenExpandida');
 
         const btnPrev = modalElement.querySelector('.modal-prev');
         const btnNext = modalElement.querySelector('.modal-next');
 
-        // Focus restore
         let lastFocusedElement = null;
 
-        // Lista de imágenes (en el orden del DOM)
         const srcList = items.map(item => item.querySelector('img')?.src).filter(Boolean);
-
-        // Índice actual dentro del modal
         let currentIndex = 0;
 
         const wrapIndex = (i) => {
@@ -171,17 +166,15 @@
           imagenExpandida.src = srcList[currentIndex];
         };
 
-        // Click -> set src -> show
-        items.forEach((item, idx) => {
-          item.style.cursor = 'pointer';
+        items.forEach((item) => {
           item.addEventListener('click', () => {
+            const idx = Number(item.dataset.index ?? 0);
             lastFocusedElement = document.activeElement;
             setImageByIndex(idx);
             modal.show();
           });
         });
 
-        // Botones
         btnPrev?.addEventListener('click', (e) => {
           e.preventDefault();
           setImageByIndex(currentIndex - 1);
@@ -192,7 +185,6 @@
           setImageByIndex(currentIndex + 1);
         });
 
-        // Teclado (solo cuando modal está abierto)
         const onKeyDown = (e) => {
           if (e.key === 'ArrowLeft') setImageByIndex(currentIndex - 1);
           if (e.key === 'ArrowRight') setImageByIndex(currentIndex + 1);
