@@ -611,3 +611,34 @@ footer a:hover{ text-decoration:underline; }
     width:auto !important;
   }
 }
+
+/* =======================
+   FIX DEFINITIVO: imagen gigante producto único
+   (pégalo AL FINAL del styles.css)
+======================= */
+
+/* El contenedor SIEMPRE con alto fijo */
+.producto-landing-media{
+  height: 360px !important;
+  min-height: 360px !important;
+  max-height: 360px !important;
+  overflow: hidden !important;
+}
+
+/* La imagen SIEMPRE calza dentro del contenedor */
+.producto-landing-img{
+  width: 100% !important;
+  height: 100% !important;
+  max-height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+
+/* Mobile */
+@media (max-width: 991px){
+  .producto-landing-media{
+    height: 300px !important;
+    min-height: 300px !important;
+    max-height: 300px !important;
+  }
+}
