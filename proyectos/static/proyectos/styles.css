@@ -642,3 +642,206 @@ footer a:hover{ text-decoration:underline; }
     max-height: 300px !important;
   }
 }
+
+/* =========================================================
+   SINGLE PRODUCT — CLAVADO AL MOCK (solo 1 producto)
+   PÉGALO AL FINAL del styles.css (después de TODO)
+========================================================= */
+#galeria.galeria--single{
+  background: #ffffff;
+  padding: 2.2rem 0 3.2rem;
+}
+
+/* Título “Nuestros PRODUCTOS” como el mock */
+#galeria.galeria--single .producto-landing-title{
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: clamp(2.1rem, 2.8vw, 3rem);
+  font-weight: 500;
+  letter-spacing: .5px;
+  color: #6c757d;
+  margin-bottom: 2.2rem;
+}
+#galeria.galeria--single .producto-landing-title strong{
+  color:#6A3D1A;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Panel centrado con sombra suave */
+#galeria.galeria--single .producto-landing-panel{
+  width: min(1280px, 100%);
+  border-radius: 6px;
+  border: 1px solid rgba(0,0,0,.06);
+  box-shadow: 0 18px 40px rgba(0,0,0,.12);
+  background: #fff;
+  overflow: hidden;
+}
+
+/* Layout igual al mock */
+#galeria.galeria--single .producto-landing-top{
+  grid-template-columns: 58% 42%;
+  align-items: stretch;
+}
+
+/* ✅ Alto “hero” (más grande que tu fix de 360) */
+#galeria.galeria--single .producto-landing-media{
+  height: 430px !important;
+  min-height: 430px !important;
+  max-height: 430px !important;
+  position: relative;
+  overflow: hidden;
+  background: #eee;
+}
+#galeria.galeria--single .producto-landing-img{
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: left center !important;
+  display:block !important;
+}
+
+/* Fade como el mock: parte más tarde y termina full blanco */
+#galeria.galeria--single .producto-landing-fade{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0) 46%,
+    rgba(255,255,255,.18) 55%,
+    rgba(255,255,255,.52) 62%,
+    rgba(255,255,255,.78) 70%,
+    rgba(255,255,255,.92) 78%,
+    rgba(255,255,255,1) 86%,
+    rgba(255,255,255,1) 100%
+  );
+}
+
+/* Contenido con paddings y tamaños del mock */
+#galeria.galeria--single .producto-landing-content{
+  padding: 3.0rem 3.2rem;
+}
+#galeria.galeria--single .producto-landing-h3{
+  font-family:'Poppins', sans-serif !important;
+  color:#6A3D1A;
+  font-size: 2.6rem;
+  line-height: 1.08;
+  margin: 0 0 1rem 0;
+}
+#galeria.galeria--single .producto-landing-desc{
+  color:#6c757d;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin: 0 0 1.4rem 0;
+  max-width: 52ch;
+}
+
+/* Lista checks */
+#galeria.galeria--single .producto-landing-list{
+  gap: .95rem;
+}
+#galeria.galeria--single .producto-landing-list li{
+  font-size: 1.02rem;
+}
+#galeria.galeria--single .producto-landing-list i{
+  color:#6A3D1A;
+  font-size: 1.25rem;
+}
+
+/* Barra inferior beige como el mock */
+#galeria.galeria--single .producto-landing-bottom{
+  background: #f3e7df; /* beige suave */
+  border-top: 1px solid rgba(0,0,0,.05);
+  padding: 1.35rem 2.2rem;
+  align-items: center;
+}
+#galeria.galeria--single .producto-landing-bottom-text{
+  color:#6A3D1A;
+  opacity: .82;
+  font-size: 1.02rem;
+  max-width: 58ch;
+}
+
+/* =========================
+   Botones igual al mock
+   - Ver Trabajos: outline + underline normal
+   - Cotizar: sólido café
+========================= */
+
+/* Mata tu underline “barrita” SOLO en single */
+#galeria.galeria--single .btn-ver-trabajos{
+  all: unset;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-family:'Poppins', sans-serif !important;
+  font-weight: 600;
+  color:#6A3D1A;
+  background:#fff;
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: 4px;
+  padding: .85rem 1.65rem;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+#galeria.galeria--single .btn-ver-trabajos::after{
+  display:none !important;
+}
+#galeria.galeria--single .btn-ver-trabajos:hover{
+  border-color: rgba(106,61,26,.45);
+  color:#8B5E3C;
+}
+
+/* Cotizar sólido */
+#galeria.galeria--single .producto-landing-cotizar{
+  border-radius: 4px;
+  padding: .85rem 1.85rem;
+  background:#6A3D1A;
+  color:#fff;
+  text-decoration:none;
+  font-family:'Poppins', sans-serif !important;
+  font-weight: 600;
+}
+#galeria.galeria--single .producto-landing-cotizar:hover{
+  background:#8B5E3C;
+  transform: none; /* el mock es más “quieto” */
+}
+
+/* Responsive: apila y cambia el fade a vertical */
+@media (max-width: 991px){
+  #galeria.galeria--single .producto-landing-top{
+    grid-template-columns: 1fr;
+  }
+
+  #galeria.galeria--single .producto-landing-media{
+    height: 320px !important;
+    min-height: 320px !important;
+    max-height: 320px !important;
+  }
+
+  #galeria.galeria--single .producto-landing-fade{
+    background: linear-gradient(
+      180deg,
+      rgba(255,255,255,0) 0%,
+      rgba(255,255,255,.55) 55%,
+      rgba(255,255,255,.92) 78%,
+      rgba(255,255,255,1) 100%
+    );
+  }
+
+  #galeria.galeria--single .producto-landing-content{
+    padding: 1.6rem 1.6rem 1.9rem;
+  }
+  #galeria.galeria--single .producto-landing-h3{
+    font-size: 1.9rem;
+  }
+
+  #galeria.galeria--single .producto-landing-bottom{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
+
