@@ -102,7 +102,7 @@
 </section>
 
 <!-- ============ PRODUCTOS ============ -->
-<section id="galeria" class="py-4 bg-white">
+<section id="galeria" class="py-4 bg-white {% if productos|length == 1 %}galeria--single{% endif %}">
   <div class="container-fluid px-3">
 
     <h2 class="mb-5 px-3 text-center producto-landing-title">
@@ -166,7 +166,6 @@
         </div>
 
       {% endfor %}
-
     {% else %}
       <!-- ✅ VARIOS PRODUCTOS: GRID NORMAL (NO TOCAR) -->
       <div class="row justify-content-center g-1">
@@ -192,6 +191,7 @@
 
   </div>
 </section>
+
 
 
 <!-- ============ SERVICIOS ============ -->

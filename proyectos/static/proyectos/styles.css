@@ -143,7 +143,7 @@ body{ font-family:'Montserrat', sans-serif; }
   letter-spacing:.5px;
 }
 
-/* Subtle hover underline button */
+/* Subtle hover underline button (lo usas en grid y single) */
 .btn-ver-trabajos{
   all:unset;
   font-family:'Poppins', sans-serif !important;
@@ -172,12 +172,12 @@ body{ font-family:'Montserrat', sans-serif; }
 }
 
 /* =======================
-  PRODUCTO ÚNICO: MINI LANDING (NO CARD)
-  - Solo se usa cuando hay 1 producto (por el HTML)
-  - No toca el grid normal
+  PRODUCTO ÚNICO: MINI LANDING (BASE)
+  - No depende de bootstrap cards
+  - Se aplica solo a tu layout de 1 producto
 ======================= */
 
-/* título centrado */
+/* título */
 .producto-landing-title{
   font-family:'Poppins', sans-serif !important;
 }
@@ -190,7 +190,7 @@ body{ font-family:'Montserrat', sans-serif; }
   padding:0 12px;
 }
 
-/* panel grande */
+/* panel */
 .producto-landing-panel{
   width:min(1220px, 100%);
   background:#fff;
@@ -205,11 +205,11 @@ body{ font-family:'Montserrat', sans-serif; }
   align-items:stretch;
 }
 
-/* media */
+/* media (BASE) */
 .producto-landing-media{
   position:relative;
-  min-height:420px;
   background:#eee;
+  overflow:hidden;
 }
 .producto-landing-img{
   width:100%;
@@ -219,18 +219,10 @@ body{ font-family:'Montserrat', sans-serif; }
   display:block;
 }
 
-/* fade blanco fuerte (como tu imagen) */
+/* fade */
 .producto-landing-fade{
   position:absolute;
   inset:0;
-  background:linear-gradient(
-    to right,
-    rgba(255,255,255,0) 0%,
-    rgba(255,255,255,.25) 48%,
-    rgba(255,255,255,.70) 66%,
-    rgba(255,255,255,.92) 78%,
-    rgba(255,255,255,1) 100%
-  );
   pointer-events:none;
 }
 
@@ -281,7 +273,6 @@ body{ font-family:'Montserrat', sans-serif; }
   justify-content:space-between;
   gap:1.2rem;
   padding:1.25rem 1.7rem;
-  background:#fff;
   border-top:1px solid rgba(0,0,0,.06);
 }
 .producto-landing-bottom-text{
@@ -319,12 +310,73 @@ body{ font-family:'Montserrat', sans-serif; }
   transform:translateY(-1px);
 }
 
-/* responsive */
+/* =======================
+  OVERRIDE “CLAVADO AL MOCK”
+  Solo cuando el section tiene .galeria--single
+======================= */
+.galeria--single{
+  background: radial-gradient(1200px 300px at 50% 0%, rgba(106,61,26,.08), rgba(255,255,255,0) 60%),
+              linear-gradient(180deg, #fff 0%, #fbf8f5 55%, #fff 100%);
+  padding-bottom: 2.5rem;
+}
+
+/* Panel más pro y no tan ancho */
+.galeria--single .producto-landing-panel{
+  width: min(1120px, 100%);
+  border: 1px solid rgba(0,0,0,.05);
+  box-shadow: 0 18px 45px rgba(0,0,0,.12);
+}
+
+/* ✅ CLAVE: controlar tamaño de imagen como el mock */
+.galeria--single .producto-landing-media{
+  height: 360px;          /* 👈 aquí se arregla el “gigante” */
+}
+.galeria--single .producto-landing-img{
+  height: 100%;
+}
+
+/* Fade fuerte como mock */
+.galeria--single .producto-landing-fade{
+  background: linear-gradient(
+    to right,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,.10) 42%,
+    rgba(255,255,255,.45) 58%,
+    rgba(255,255,255,.80) 70%,
+    rgba(255,255,255,.96) 82%,
+    rgba(255,255,255,1) 100%
+  );
+}
+
+/* Barra inferior beige como mock */
+.galeria--single .producto-landing-bottom{
+  background: #fbf4ee;
+}
+
+/* “Ver Trabajos” tipo outline + underline como mock */
+.galeria--single .producto-landing-ver{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding: .85rem 1.35rem;
+  border-radius: 10px;
+  border: 2px solid rgba(106,61,26,.25);
+  background: #fff;
+  text-decoration: underline;
+  font-weight: 600;
+}
+.galeria--single .producto-landing-ver:hover{
+  border-color: rgba(139,94,60,.55);
+  color: #8B5E3C;
+}
+
+/* Responsive */
 @media (max-width:991px){
   .producto-landing-top{ grid-template-columns:1fr; }
-  .producto-landing-media{ min-height:320px; }
-  .producto-landing-fade{
-    background:linear-gradient(
+  .galeria--single .producto-landing-media{ height: 300px; }
+
+  .galeria--single .producto-landing-fade{
+    background: linear-gradient(
       to top,
       rgba(255,255,255,0) 0%,
       rgba(255,255,255,.55) 55%,
@@ -332,13 +384,16 @@ body{ font-family:'Montserrat', sans-serif; }
       rgba(255,255,255,1) 100%
     );
   }
+
   .producto-landing-content{ padding:1.5rem 1.5rem 1.7rem; }
   .producto-landing-h3{ font-size:1.7rem; }
+
   .producto-landing-bottom{
     flex-direction:column;
     align-items:flex-start;
   }
 }
+
 
 /* =======================
   SERVICIOS
