@@ -104,6 +104,7 @@
 <!-- ============ PRODUCTOS ============ -->
 <section id="galeria" class="py-4 bg-white">
   <div class="container-fluid px-3">
+
     <h2 class="mb-5 px-3 text-center producto-landing-title">
       Nuestros <strong>PRODUCTOS</strong>
     </h2>
@@ -116,7 +117,6 @@
 
             <!-- Bloque superior: imagen + contenido -->
             <div class="producto-landing-top">
-
               <div class="producto-landing-media">
                 <img
                   src="{{ producto.imagen.url }}"
@@ -140,10 +140,9 @@
                   <li><i class="bi bi-check2"></i> Garantía real</li>
                 </ul>
               </div>
-
             </div>
 
-            <!-- Barra inferior (dentro del mismo panel) -->
+            <!-- Barra inferior -->
             <div class="producto-landing-bottom">
               <p class="producto-landing-bottom-text mb-0">
                 Nuestras cortinas a medida, hechas con materiales nobles y una instalación profesional impecable.
@@ -195,10 +194,6 @@
 </section>
 
 
-
-
-
-
 <!-- ============ SERVICIOS ============ -->
 <section id="servicios" class="py-5">
   <div class="container">
@@ -242,7 +237,6 @@
     <div class="row g-1">
       {% for d in destacados %}
       <div class="col-6 col-md-4 col-lg-3">
-        <!-- ✅ cambio mínimo: data-index -->
         <div class="gallery-item position-relative overflow-hidden shadow-sm" data-index="{{ forloop.counter0 }}">
           <img src="{{ d.imagen.url }}" alt="{{ d.titulo }}" class="img-fluid">
           <div class="overlay position-absolute top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center">
@@ -400,10 +394,8 @@
   </div>
 </footer>
 
-<!-- ============ MODAL IMAGEN (flechas flotantes pegadas a la imagen) ============ -->
+<!-- ============ MODAL IMAGEN ============ -->
 <div class="modal fade" id="modalImagen" tabindex="-1" aria-hidden="true">
-
-  <!-- ✅ Cerrar fijo en la esquina de la pantalla -->
   <button type="button"
           class="btn-close btn-close-white modal-close-fixed"
           data-bs-dismiss="modal"
@@ -412,7 +404,6 @@
   <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content bg-transparent border-0">
       <div class="modal-body p-0 text-center">
-
         <div class="modal-image-wrap">
           <button type="button" class="modal-nav modal-prev" aria-label="Anterior">
             <i class="bi bi-chevron-left"></i>
@@ -424,17 +415,12 @@
             <i class="bi bi-chevron-right"></i>
           </button>
         </div>
-
       </div>
     </div>
   </div>
 </div>
 
-
-
-
-
-<!-- ============ JS (✅ reemplazar completo) ============ -->
+<!-- ============ JS ============ -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
@@ -446,16 +432,10 @@
     const btnPrev = modalElement.querySelector('.modal-prev');
     const btnNext = modalElement.querySelector('.modal-next');
 
-    // Focus restore (NO tocar)
     let lastFocusedElement = null;
-
-    // Lista de imágenes (en el orden del DOM)
     const srcList = items.map(item => item.querySelector('img')?.src).filter(Boolean);
-
-    // Índice actual dentro del modal
     let currentIndex = 0;
 
-    // índice circular
     const wrapIndex = (i) => {
       const n = srcList.length;
       if (n === 0) return 0;
@@ -468,7 +448,6 @@
       imagenExpandida.src = srcList[currentIndex];
     };
 
-    // Click -> set src -> show (mismo flujo)
     items.forEach((item) => {
       item.addEventListener('click', () => {
         const idx = Number(item.dataset.index ?? 0);
@@ -478,7 +457,6 @@
       });
     });
 
-    // Botones
     btnPrev?.addEventListener('click', (e) => {
       e.preventDefault();
       setImageByIndex(currentIndex - 1);
@@ -489,7 +467,6 @@
       setImageByIndex(currentIndex + 1);
     });
 
-    // Teclado (solo cuando modal está abierto)
     const onKeyDown = (e) => {
       if (e.key === 'ArrowLeft') setImageByIndex(currentIndex - 1);
       if (e.key === 'ArrowRight') setImageByIndex(currentIndex + 1);
@@ -499,15 +476,8 @@
       document.addEventListener('keydown', onKeyDown);
     });
 
-    // Focus restore (NO tocar)
     modalElement.addEventListener('hidden.bs.modal', () => {
-      if (lastFocusedElement) {
-        lastFocusedElement.focus();
-      }
-    });
-
-    // Cleanup (separado)
-    modalElement.addEventListener('hidden.bs.modal', () => {
+      if (lastFocusedElement) lastFocusedElement.focus();
       document.removeEventListener('keydown', onKeyDown);
     });
   });
