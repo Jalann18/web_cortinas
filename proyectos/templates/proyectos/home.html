@@ -106,64 +106,82 @@
   <div class="container-fluid px-3">
     <h2 class="mb-5 px-3">Nuestros <strong>PRODUCTOS</strong></h2>
 
-    <div class="row justify-content-center g-1">
-
-      {% if productos|length == 1 %}
+    {% if productos|length == 1 %}
       {% for producto in productos %}
-        <div class="col-12 col-md-10 col-lg-8">
-            <div class="card card-producto-unico border-0 shadow-lg overflow-hidden d-flex flex-column">
-              <div class="card-producto-unico__media">
-                <img
-                  src="{{ producto.imagen.url }}"
-                  class="card-img-top"
-                  alt="{{ producto.nombre }}"
-                />
-              </div>
+        <div class="producto-landing">
 
-              <div class="card-body d-flex flex-column">
-                <div class="card-producto-unico__badge">Disponible</div>
+          <!-- HERO MINI LANDING -->
+          <div class="producto-landing__hero shadow-lg">
+            <div class="producto-landing__media">
+              <img src="{{ producto.imagen.url }}"
+                   alt="{{ producto.nombre }}"
+                   class="producto-landing__img">
+              <span class="producto-landing__fade"></span>
+            </div>
 
-                <h3 class="card-title card-producto-unico__title">{{ producto.nombre }}</h3>
-                <p class="card-text card-producto-unico__text">{{ producto.descripcion }}</p>
+            <div class="producto-landing__content">
+              <h3 class="producto-landing__title">{{ producto.nombre }}</h3>
 
-                <a
-                  href="{% url 'detalle_producto' producto.id %}"
-                  class="btn-ver-trabajos mt-auto card-producto-unico__cta"
-                >
-                  Ver Trabajos
-                </a>
-              </div>
+              <p class="producto-landing__desc">
+                {{ producto.descripcion }}
+              </p>
+
+              <ul class="producto-landing__list">
+                <li><i class="bi bi-check2"></i> Fabricadas a medida</li>
+                <li><i class="bi bi-check2"></i> Madera natural seleccionada</li>
+                <li><i class="bi bi-check2"></i> Instalación profesional incluida</li>
+                <li><i class="bi bi-check2"></i> Garantía real</li>
+              </ul>
             </div>
           </div>
-        {% endfor %}
 
-      {% else %}
+          <!-- BARRA INFERIOR (copy + botones) -->
+          <div class="producto-landing__bar shadow-lg">
+            <p class="producto-landing__bartext mb-0">
+              Nuestras cortinas a medida, hechas con materiales nobles y una instalación profesional impecable.
+            </p>
+
+            <div class="producto-landing__actions">
+              <a href="{% url 'detalle_producto' producto.id %}"
+                 class="btn-ver-trabajos producto-landing__btnline">
+                Ver Trabajos
+              </a>
+
+              <a href="#end" class="producto-landing__btnsolid">
+                Cotizar
+              </a>
+            </div>
+          </div>
+
+        </div>
+      {% endfor %}
+
+    {% else %}
+      <!-- ✅ VARIOS PRODUCTOS: GRID NORMAL (NO TOCAR) -->
+      <div class="row justify-content-center g-1">
         {% for producto in productos %}
           <div class="col-12 col-sm-6 col-lg-4">
             <div class="card border-0 h-100 shadow-lg rounded-2xl overflow-hidden d-flex flex-column">
-              <img
-                src="{{ producto.imagen.url }}"
-                class="card-img-top"
-                alt="{{ producto.nombre }}"
-              >
+              <img src="{{ producto.imagen.url }}"
+                   class="card-img-top"
+                   alt="{{ producto.nombre }}">
               <div class="card-body d-flex flex-column">
                 <h5 class="card-title">{{ producto.nombre }}</h5>
                 <p class="card-text">{{ producto.descripcion }}</p>
-                <a
-                  href="{% url 'detalle_producto' producto.id %}"
-                  class="btn-ver-trabajos mt-auto"
-                >
+                <a href="{% url 'detalle_producto' producto.id %}"
+                   class="btn-ver-trabajos mt-auto">
                   Ver Trabajos
                 </a>
               </div>
             </div>
           </div>
         {% endfor %}
-      {% endif %}
+      </div>
+    {% endif %}
 
-    </div>
   </div>
 </section>
+
 
 
 
