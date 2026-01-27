@@ -1,15 +1,14 @@
 /* =======================
   ROOT & TYPOGRAPHY
-   ======================= */
+======================= */
 html, body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
   font-size: 15px;
 }
-body {
-  font-family: 'Montserrat', sans-serif;
-}
+body { font-family: 'Montserrat', sans-serif; }
+
 /* Font utilities */
 .font-roboto  { font-family: 'Roboto', sans-serif; }
 .font-poppins { font-family: 'Poppins', sans-serif !important; }
@@ -17,7 +16,7 @@ body {
 
 /* =======================
   NAVBAR
-   ======================= */
+======================= */
 .navbar {
   background-color: #f0f0f0;
   padding: 2rem 0;
@@ -26,9 +25,8 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 .navbar-brand,
-.navbar-nav .nav-link {
-  color: #8B5E3C !important;
-}
+.navbar-nav .nav-link { color: #8B5E3C !important; }
+
 .navbar-brand {
   font-size: 1.8rem;
   font-weight: bold;
@@ -38,38 +36,30 @@ body {
   font-size: 1.15rem;
   margin: 0 1rem;
 }
-.navbar-nav .nav-link:hover {
-  color: #5a3b28 !important;
-}
-.navbar-toggler {
-  border-color: #8B5E3C;
-}
-.navbar-light .navbar-toggler-icon {
-  filter: invert(0.6);
-}
+.navbar-nav .nav-link:hover { color: #5a3b28 !important; }
+
+.navbar-toggler { border-color: #8B5E3C; }
+.navbar-light .navbar-toggler-icon { filter: invert(0.6); }
+
 /* Logo scaling */
 .logo-navbar {
   max-height: 48px;
   transform-origin: left center;
 }
 @media (min-width: 992px) {
-  .logo-navbar {
-    transform: scale(3.5);
-  }
+  .logo-navbar { transform: scale(3.5); }
 }
 
 
 /* =======================
   CAROUSEL (INICIO)
-   ======================= */
+======================= */
 #inicio {
   padding-top: 118px; /* avoid navbar overlap */
   overflow: hidden;
   text-align: center;
 }
-.carousel-inner {
-  overflow: hidden;
-}
+.carousel-inner { overflow: hidden; }
 .carousel-item {
   height: calc(100vh - 118px) !important;
   position: relative;
@@ -79,6 +69,7 @@ body {
   height: 100%;
   object-fit: cover;
 }
+
 .carousel-item .overlay {
   position: absolute;
   inset: 0;
@@ -96,17 +87,18 @@ body {
   color: #fff;
   z-index: 2;
 }
+
 @media (max-width: 768px) {
   .carousel-item { height: 60vh; }
-  .display-3      { font-size: 1.8rem; }
-  .lead           { font-size: 1rem; }
-  .btn-lg         { font-size: 1rem; padding: .5rem 1rem; }
+  .display-3 { font-size: 1.8rem; }
+  .lead { font-size: 1rem; }
+  .btn-lg { font-size: 1rem; padding: .5rem 1rem; }
 }
 
 
 /* =======================
   H1 DESTACADO
-   ======================= */
+======================= */
 #cortinas-a-medida {
   padding: 60px 20px;
   background-color: #fff;
@@ -129,20 +121,21 @@ body {
 
 /* =======================
   PRODUCTOS / GALERÍA
-   ======================= */
+======================= */
 #galeria h2 {
   font-family: 'Poppins', sans-serif !important;
   color: #6A3D1A;
 }
-#galeria p {
-  color: #6c757d;
-}
+#galeria p { color: #6c757d; }
+
+/* Card base (grid normal) */
 .card {
   border-radius: 0;
   transform: scale(.9);
   transform-origin: center top;
-  transition: transform .3s ease;
+  transition: transform .3s ease, box-shadow .3s ease;
 }
+
 .card-img-top {
   width: 100%;
   height: 320px;
@@ -150,12 +143,14 @@ body {
   object-position: center;
   border-radius: 0;
 }
+
 .card-title {
   font-family: 'Poppins', sans-serif !important;
   color: #6A3D1A;
   font-size: 1.3rem;
   letter-spacing: .5px;
 }
+
 /* Subtle hover underline button */
 .btn-ver-trabajos {
   all: unset;
@@ -176,19 +171,18 @@ body {
   width: 100%;
   height: 4px;
   background-color: #6A3D1A;
-  transition: bottom .08s;
+  transition: bottom .08s, background-color .08s;
 }
-.btn-ver-trabajos:hover {
-  color: #8B5E3C;
-}
+.btn-ver-trabajos:hover { color: #8B5E3C; }
 .btn-ver-trabajos:hover::after {
   bottom: -2px;
+  background-color: #8B5E3C;
 }
 
 
 /* =======================
   SERVICIOS
-   ======================= */
+======================= */
 #servicios {
   position: relative;
   background: url('/static/proyectos/fondo-servicios.jpg') fixed center/cover no-repeat;
@@ -208,20 +202,16 @@ body {
 #servicios h2,
 #servicios h5,
 #servicios p,
-#servicios .card-title {
-  color: #fff;
-}
-#servicios .card {
-  background-color: rgba(0,0,0,0.5);
-}
+#servicios .card-title { color: #fff; }
+
+#servicios .card { background-color: rgba(0,0,0,0.5); }
 
 
 /* =======================
   GALERÍA INTERACTIVA
-   ======================= */
-#destacados h2{
-  color: #6A3D1A;
-}
+======================= */
+#destacados h2 { color: #6A3D1A; }
+
 .gallery-item {
   cursor: pointer;
   overflow: hidden;
@@ -232,9 +222,8 @@ body {
   object-fit: cover;
   transition: transform .3s ease;
 }
-.gallery-item:hover img {
-  transform: scale(1.1);
-}
+.gallery-item:hover img { transform: scale(1.1); }
+
 .gallery-item .overlay {
   position: absolute;
   inset: 0;
@@ -242,33 +231,27 @@ body {
   opacity: 0;
   transition: opacity .3s ease;
 }
-.gallery-item:hover .overlay {
-  opacity: 1;
-}
+.gallery-item:hover .overlay { opacity: 1; }
 
 
 /* =======================
   MODAL IMAGEN (LIMPIO + MÁS CHICO)
-   ======================= */
+======================= */
 #modalImagen{
-  --nav-size: 38px;         /* ✅ flechas más chicas */
+  --nav-size: 38px;
   --nav-radius: 8px;
   --nav-bd: 1px solid rgba(255,255,255,.75);
-
-  --close-size: 34px;       /* ✅ X más chica */
+  --close-size: 34px;
 }
 
 #modalImagen .modal-dialog{
   max-width: 92vw;
   margin: 1.5rem auto;
 }
-
 #modalImagen .modal-body{
   padding: 0;
   text-align: center;
 }
-
-/* wrap toma el ancho real de la imagen */
 #modalImagen .modal-image-wrap{
   position: relative;
   display: inline-block;
@@ -282,7 +265,7 @@ body {
   display: block;
 }
 
-/* ========== Flechas (más chicas y más limpias) ========== */
+/* Flechas */
 #modalImagen .modal-nav{
   position: absolute;
   top: 50%;
@@ -293,9 +276,9 @@ body {
   border: var(--nav-bd);
   border-radius: var(--nav-radius);
 
-  background: transparent;     /* ✅ sin “envuelto” */
-  box-shadow: none;            /* ✅ sin sombra */
-  backdrop-filter: none;       /* ✅ sin blur */
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
 
   color: #fff;
   display: grid;
@@ -305,27 +288,24 @@ body {
   opacity: .9;
   transition: opacity .12s ease, transform .12s ease, background-color .12s ease;
 }
-
 #modalImagen .modal-prev{ left: 10px; }
 #modalImagen .modal-next{ right: 10px; }
 
 #modalImagen .modal-nav:hover{
-  background-color: rgba(255,255,255,.10); /* suave, opcional */
+  background-color: rgba(255,255,255,.10);
   opacity: 1;
   transform: translateY(-50%) scale(1.03);
 }
-
 #modalImagen .modal-nav:active{
   transform: translateY(-50%) scale(.98);
 }
-
 #modalImagen .modal-nav i{
-  font-size: 1.6rem; /* ✅ icono más chico */
+  font-size: 1.6rem;
   line-height: 1;
-  text-shadow: none; /* ✅ sin glow */
+  text-shadow: none;
 }
 
-/* ========== Cerrar fijo (SIN CAJA, solo X blanca) ========== */
+/* Cerrar fijo */
 #modalImagen .modal-close-fixed{
   position: fixed;
   top: 14px;
@@ -338,16 +318,16 @@ body {
   padding: 0;
   margin: 0;
 
-  border: 0 !important;        /* ✅ sin borde */
-  border-radius: 0 !important; /* ✅ sin “botón” */
-  background-color: transparent !important; /* ✅ sin caja */
-  box-shadow: none !important; /* ✅ sin sombra */
+  border: 0 !important;
+  border-radius: 0 !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
   backdrop-filter: none !important;
 
   opacity: 1;
 }
 
-/* asegura que la X sea blanca y visible (blindado) */
+/* X blanca */
 #modalImagen .btn-close.btn-close-white.modal-close-fixed{
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e");
   background-repeat: no-repeat;
@@ -355,12 +335,7 @@ body {
   background-size: 70% 70%;
   opacity: 1;
 }
-
-
-#modalImagen .modal-close-fixed:hover{
-  opacity: .85;
-}
-
+#modalImagen .modal-close-fixed:hover{ opacity: .85; }
 #modalImagen .modal-close-fixed:focus-visible{
   outline: 2px solid rgba(255,255,255,.85);
   outline-offset: 3px;
@@ -369,22 +344,18 @@ body {
 
 /* =======================
   SOBRE NOSOTROS
-   ======================= */
+======================= */
 #sobre-nosotros {
   background-color: #f8f9fa;
   padding: 2rem 0;
 }
-#sobre-nosotros .text-madera {
-  color: #8B5E3C;
-}
-#sobre-nosotros .img {
-  max-height: 50px;
-}
+#sobre-nosotros .text-madera { color: #8B5E3C; }
+#sobre-nosotros .img { max-height: 50px; }
 
 
 /* =======================
   FAQ + CONTACTO (END)
-   ======================= */
+======================= */
 #end {
   position: relative;
   background: url('/static/proyectos/ph2.jpg') fixed center/cover no-repeat;
@@ -407,7 +378,7 @@ body {
 
 /* =======================
   FOOTER
-   ======================= */
+======================= */
 .footer-logo {
   max-height: 160px;
   display: block;
@@ -416,15 +387,14 @@ body {
   top: -30px;
   filter: brightness(0) invert(1);
 }
-footer a:hover {
-  text-decoration: underline;
-}
+footer a:hover { text-decoration: underline; }
 
 
 /* =======================
   UTILITIES
-   ======================= */
+======================= */
 .text-justificado { text-align: justify!important; }
+
 .btn-solo-underline {
   all: unset;
   font-family: 'Montserrat', sans-serif;
@@ -442,14 +412,89 @@ footer a:hover {
 
 /* =======================
   RESPONSIVE LOGO
-   ======================= */
+======================= */
 @media (max-width: 991px) {
-  .navbar {
-    padding: 1rem 0 !important;
-  }
+  .navbar { padding: 1rem 0 !important; }
   .logo-navbar {
     transform: none !important;
     max-height: 100px !important;
     width: auto !important;
   }
+}
+
+
+/* =======================
+  PRODUCTO ÚNICO (CARD GRANDE)
+  - Solo se aplica a .card-producto-unico
+======================= */
+.card-producto-unico{
+  border-radius: 18px;
+  overflow: hidden;
+  transform: none; /* anula el scale(.9) global de .card */
+  background: #fff;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.card-producto-unico:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 16px 30px rgba(0,0,0,.12);
+}
+
+.card-producto-unico__media{ position: relative; }
+
+.card-producto-unico .card-img-top{
+  height: 460px;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* degradado suave */
+.card-producto-unico__media::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(to top, rgba(0,0,0,.35), rgba(0,0,0,0));
+  pointer-events:none;
+}
+
+.card-producto-unico .card-body{
+  padding: 1.6rem 1.6rem 1.9rem;
+}
+
+/* badge */
+.card-producto-unico__badge{
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  width: fit-content;
+  padding: .35rem .7rem;
+  border-radius: 999px;
+  background: rgba(106,61,26,.10);
+  color: #6A3D1A;
+  font-weight: 600;
+  letter-spacing: .2px;
+  margin-bottom: .9rem;
+}
+
+/* título */
+.card-producto-unico__title{
+  font-size: 2rem;
+  margin-bottom: .6rem;
+}
+
+/* texto */
+.card-producto-unico__text{
+  font-size: 1.05rem;
+  color: #6c757d;
+  line-height: 1.55;
+  margin-bottom: 1.2rem;
+}
+
+/* CTA respeta tu underline */
+.card-producto-unico__cta{
+  padding-top: .35rem;
+}
+
+@media (max-width: 768px){
+  .card-producto-unico .card-img-top{ height: 320px; }
+  .card-producto-unico__title{ font-size: 1.55rem; }
 }
