@@ -7,11 +7,14 @@ html, body{
   overflow-x:hidden;
   font-size:15px;
 }
-body{ font-family:'Montserrat', sans-serif; }
+body{
+  font-family:'Montserrat', sans-serif;
+}
 
 /* Font utilities */
 .font-roboto{ font-family:'Roboto', sans-serif; }
 .font-poppins{ font-family:'Poppins', sans-serif !important; }
+
 
 /* =======================
   NAVBAR
@@ -24,8 +27,9 @@ body{ font-family:'Montserrat', sans-serif; }
   font-family:'Roboto', sans-serif;
 }
 .navbar-brand,
-.navbar-nav .nav-link{ color:#8B5E3C !important; }
-
+.navbar-nav .nav-link{
+  color:#8B5E3C !important;
+}
 .navbar-brand{
   font-size:1.8rem;
   font-weight:bold;
@@ -35,10 +39,15 @@ body{ font-family:'Montserrat', sans-serif; }
   font-size:1.15rem;
   margin:0 1rem;
 }
-.navbar-nav .nav-link:hover{ color:#5a3b28 !important; }
-
-.navbar-toggler{ border-color:#8B5E3C; }
-.navbar-light .navbar-toggler-icon{ filter: invert(.6); }
+.navbar-nav .nav-link:hover{
+  color:#5a3b28 !important;
+}
+.navbar-toggler{
+  border-color:#8B5E3C;
+}
+.navbar-light .navbar-toggler-icon{
+  filter: invert(.6);
+}
 
 /* Logo scaling */
 .logo-navbar{
@@ -49,11 +58,12 @@ body{ font-family:'Montserrat', sans-serif; }
   .logo-navbar{ transform: scale(3.5); }
 }
 
+
 /* =======================
   CAROUSEL (INICIO)
 ======================= */
 #inicio{
-  padding-top:118px;
+  padding-top:118px; /* avoid navbar overlap */
   overflow:hidden;
   text-align:center;
 }
@@ -91,6 +101,7 @@ body{ font-family:'Montserrat', sans-serif; }
   .btn-lg{ font-size:1rem; padding:.5rem 1rem; }
 }
 
+
 /* =======================
   H1 DESTACADO
 ======================= */
@@ -113,8 +124,10 @@ body{ font-family:'Montserrat', sans-serif; }
   margin:0 auto;
 }
 
+
 /* =======================
   PRODUCTOS / GALERÍA (GRID NORMAL)
+  - Esto es para cuando hay VARIOS productos (cards)
 ======================= */
 #galeria h2{
   font-family:'Poppins', sans-serif !important;
@@ -143,7 +156,7 @@ body{ font-family:'Montserrat', sans-serif; }
   letter-spacing:.5px;
 }
 
-/* Botón underline (base) */
+/* Botón underline (base, para grid normal) */
 .btn-ver-trabajos{
   all:unset;
   font-family:'Poppins', sans-serif !important;
@@ -165,145 +178,22 @@ body{ font-family:'Montserrat', sans-serif; }
   background-color:#6A3D1A;
   transition:bottom .08s, background-color .08s;
 }
-.btn-ver-trabajos:hover{ color:#8B5E3C; }
+.btn-ver-trabajos:hover{
+  color:#8B5E3C;
+}
 .btn-ver-trabajos:hover::after{
   bottom:-2px;
   background-color:#8B5E3C;
 }
 
-/* =======================
-  PRODUCTO ÚNICO: MINI LANDING (BASE)
-======================= */
-.producto-landing-title{
-  font-family:'Poppins', sans-serif !important;
-}
-.producto-landing-title strong{ color:#6A3D1A; }
-
-.producto-landing-wrap{
-  display:flex;
-  justify-content:center;
-  padding:0 12px;
-}
-.producto-landing-panel{
-  width:min(1220px, 100%);
-  background:#fff;
-  border-radius:18px;
-  overflow:hidden;
-}
-.producto-landing-top{
-  display:grid;
-  grid-template-columns:1.12fr 1fr;
-  align-items:stretch;
-}
-
-/* Media base (sin height fijo aquí; lo fija el modo single abajo) */
-.producto-landing-media{
-  position:relative;
-  background:#eee;
-  overflow:hidden;
-}
-.producto-landing-img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  object-position:left center;
-  display:block;
-}
-.producto-landing-fade{
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-}
-
-/* Content */
-.producto-landing-content{
-  padding:2.4rem 2.6rem;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-}
-.producto-landing-h3{
-  font-family:'Poppins', sans-serif !important;
-  color:#6A3D1A;
-  font-size:2.35rem;
-  line-height:1.1;
-  margin:0 0 1rem 0;
-}
-.producto-landing-desc{
-  color:#6c757d;
-  font-size:1.05rem;
-  line-height:1.7;
-  margin:0 0 1.3rem 0;
-  max-width:60ch;
-}
-.producto-landing-list{
-  list-style:none;
-  padding:0;
-  margin:0;
-  display:grid;
-  gap:.85rem;
-}
-.producto-landing-list li{
-  display:flex;
-  align-items:center;
-  gap:.75rem;
-  color:#6c757d;
-  font-size:1.07rem;
-}
-.producto-landing-list i{
-  color:#6A3D1A;
-  font-size:1.35rem;
-}
-
-/* Bottom base */
-.producto-landing-bottom{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:1.2rem;
-  padding:1.25rem 1.7rem;
-  border-top:1px solid rgba(0,0,0,.06);
-}
-.producto-landing-bottom-text{
-  color:#6A3D1A;
-  opacity:.80;
-  font-size:1.05rem;
-  line-height:1.55;
-  max-width:68ch;
-}
-.producto-landing-bottom-actions{
-  display:flex;
-  align-items:center;
-  gap:1.1rem;
-  flex-wrap:wrap;
-}
-.producto-landing-ver{ font-size:1.15rem; }
-
-.producto-landing-cotizar{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:.9rem 1.55rem;
-  border-radius:10px;
-  background:#6A3D1A;
-  color:#fff;
-  text-decoration:none;
-  font-family:'Poppins', sans-serif !important;
-  font-weight:600;
-  transition:transform .12s ease, background-color .12s ease;
-}
-.producto-landing-cotizar:hover{
-  background:#8B5E3C;
-  color:#fff;
-  transform:translateY(-1px);
-}
 
 /* =======================
-  SINGLE PRODUCT — CLAVADO AL MOCK
-  (solo cuando #galeria tiene .galeria--single)
+  PRODUCTO ÚNICO — MINI LANDING (MOCK) ✅
+  - Solo aplica cuando #galeria tiene .galeria--single
+  - Esto es lo que te deja “igual a la imagen”
 ======================= */
 #galeria.galeria--single{
-  background:#ffffff;
+  background:#fff;
   padding:2.2rem 0 3.2rem;
 }
 
@@ -322,34 +212,50 @@ body{ font-family:'Montserrat', sans-serif; }
   letter-spacing:1px;
 }
 
-/* Panel mock */
+/* Wrap */
+#galeria.galeria--single .producto-landing-wrap{
+  display:flex;
+  justify-content:center;
+  padding:0 12px;
+}
+
+/* Panel */
 #galeria.galeria--single .producto-landing-panel{
   width:min(1280px, 100%);
-  border-radius:6px;
+  background:#fff;
   border:1px solid rgba(0,0,0,.06);
+  border-radius:6px;
+  overflow:hidden;
   box-shadow:0 18px 40px rgba(0,0,0,.12);
 }
 
-/* Grid mock */
+/* Layout */
 #galeria.galeria--single .producto-landing-top{
+  display:grid;
   grid-template-columns:58% 42%;
+  align-items:stretch;
 }
 
-/* ✅ Alto fijo como mock (control imagen) */
+/* Imagen: alto fijo (mata “gigante”) */
 #galeria.galeria--single .producto-landing-media{
+  position:relative;
   height:430px;
-  min-height:430px;
-  max-height:430px;
+  overflow:hidden;
+  background:#eee;
 }
 #galeria.galeria--single .producto-landing-img{
   width:100%;
   height:100%;
   object-fit:cover;
   object-position:left center;
+  display:block;
 }
 
-/* Fade mock */
+/* Fade blanco */
 #galeria.galeria--single .producto-landing-fade{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
   background:linear-gradient(
     90deg,
     rgba(255,255,255,0) 0%,
@@ -363,36 +269,73 @@ body{ font-family:'Montserrat', sans-serif; }
   );
 }
 
-/* Content mock */
+/* Contenido */
 #galeria.galeria--single .producto-landing-content{
-  padding:3.0rem 3.2rem;
+  padding:3rem 3.2rem;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
 }
 #galeria.galeria--single .producto-landing-h3{
+  font-family:'Poppins', sans-serif !important;
+  color:#6A3D1A;
   font-size:2.6rem;
   line-height:1.08;
+  margin:0 0 1rem 0;
 }
 #galeria.galeria--single .producto-landing-desc{
+  color:#6c757d;
+  font-size:1.05rem;
+  line-height:1.7;
+  margin:0 0 1.4rem 0;
   max-width:52ch;
 }
 
-/* Lista mock */
-#galeria.galeria--single .producto-landing-list{ gap:.95rem; }
-#galeria.galeria--single .producto-landing-list li{ font-size:1.02rem; }
-#galeria.galeria--single .producto-landing-list i{ font-size:1.25rem; }
+/* Lista */
+#galeria.galeria--single .producto-landing-list{
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:grid;
+  gap:.95rem;
+}
+#galeria.galeria--single .producto-landing-list li{
+  display:flex;
+  align-items:center;
+  gap:.75rem;
+  color:#6c757d;
+  font-size:1.02rem;
+}
+#galeria.galeria--single .producto-landing-list i{
+  color:#6A3D1A;
+  font-size:1.25rem;
+}
 
-/* Bottom mock */
+/* Barra inferior beige + botones centrados */
 #galeria.galeria--single .producto-landing-bottom{
+  display:grid;
+  grid-template-columns:1fr auto;
+  align-items:center;
+  gap:1.4rem;
   background:#f3e7df;
   border-top:1px solid rgba(0,0,0,.05);
   padding:1.35rem 2.2rem;
 }
 #galeria.galeria--single .producto-landing-bottom-text{
+  color:#6A3D1A;
   opacity:.82;
   font-size:1.02rem;
+  line-height:1.55;
   max-width:58ch;
 }
+#galeria.galeria--single .producto-landing-bottom-actions{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:1rem;
+}
 
-/* Botones mock (mata la barrita underline del base) */
+/* Botón “Ver Trabajos” estilo mock (mata underline viejo) */
 #galeria.galeria--single .btn-ver-trabajos{
   all:unset;
   display:inline-flex;
@@ -403,45 +346,45 @@ body{ font-family:'Montserrat', sans-serif; }
   font-weight:600;
   color:#6A3D1A;
   background:#fff;
-  border:1px solid rgba(0,0,0,.15);
+  border:1px solid rgba(0,0,0,.18);
   border-radius:4px;
   padding:.85rem 1.65rem;
   text-decoration:underline;
   text-underline-offset:4px;
 }
-#galeria.galeria--single .btn-ver-trabajos::after{ display:none; }
+#galeria.galeria--single .btn-ver-trabajos::after{
+  display:none !important;
+}
 #galeria.galeria--single .btn-ver-trabajos:hover{
   border-color:rgba(106,61,26,.45);
   color:#8B5E3C;
 }
 
+/* Botón “Cotizar” */
 #galeria.galeria--single .producto-landing-cotizar{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
   border-radius:4px;
   padding:.85rem 1.85rem;
+  background:#6A3D1A;
+  color:#fff;
+  text-decoration:none;
+  font-family:'Poppins', sans-serif !important;
+  font-weight:600;
 }
 #galeria.galeria--single .producto-landing-cotizar:hover{
-  transform:none;
+  background:#8B5E3C;
 }
 
-/* Responsive mock */
+/* Responsive */
 @media (max-width:991px){
-  .navbar{ padding:1rem 0 !important; }
-  .logo-navbar{
-    transform:none !important;
-    max-height:100px !important;
-    width:auto !important;
-  }
-
   #galeria.galeria--single .producto-landing-top{
     grid-template-columns:1fr;
   }
-
   #galeria.galeria--single .producto-landing-media{
     height:320px;
-    min-height:320px;
-    max-height:320px;
   }
-
   #galeria.galeria--single .producto-landing-fade{
     background:linear-gradient(
       180deg,
@@ -451,21 +394,18 @@ body{ font-family:'Montserrat', sans-serif; }
       rgba(255,255,255,1) 100%
     );
   }
-
   #galeria.galeria--single .producto-landing-content{
     padding:1.6rem 1.6rem 1.9rem;
   }
-
   #galeria.galeria--single .producto-landing-h3{
     font-size:1.9rem;
   }
-
   #galeria.galeria--single .producto-landing-bottom{
-    flex-direction:column;
-    align-items:flex-start;
-    gap:1rem;
+    grid-template-columns:1fr;
+    justify-items:start;
   }
 }
+
 
 /* =======================
   SERVICIOS
@@ -489,13 +429,20 @@ body{ font-family:'Montserrat', sans-serif; }
 #servicios h2,
 #servicios h5,
 #servicios p,
-#servicios .card-title{ color:#fff; }
-#servicios .card{ background-color:rgba(0,0,0,.5); }
+#servicios .card-title{
+  color:#fff;
+}
+#servicios .card{
+  background-color:rgba(0,0,0,.5);
+}
+
 
 /* =======================
   GALERÍA INTERACTIVA
 ======================= */
-#destacados h2{ color:#6A3D1A; }
+#destacados h2{
+  color:#6A3D1A;
+}
 .gallery-item{
   cursor:pointer;
   overflow:hidden;
@@ -506,7 +453,9 @@ body{ font-family:'Montserrat', sans-serif; }
   object-fit:cover;
   transition:transform .3s ease;
 }
-.gallery-item:hover img{ transform:scale(1.1); }
+.gallery-item:hover img{
+  transform:scale(1.1);
+}
 .gallery-item .overlay{
   position:absolute;
   inset:0;
@@ -514,7 +463,10 @@ body{ font-family:'Montserrat', sans-serif; }
   opacity:0;
   transition:opacity .3s ease;
 }
-.gallery-item:hover .overlay{ opacity:1; }
+.gallery-item:hover .overlay{
+  opacity:1;
+}
+
 
 /* =======================
   MODAL IMAGEN (LIMPIO + MÁS CHICO)
@@ -610,6 +562,7 @@ body{ font-family:'Montserrat', sans-serif; }
   outline-offset:3px;
 }
 
+
 /* =======================
   SOBRE NOSOTROS
 ======================= */
@@ -617,8 +570,13 @@ body{ font-family:'Montserrat', sans-serif; }
   background-color:#f8f9fa;
   padding:2rem 0;
 }
-#sobre-nosotros .text-madera{ color:#8B5E3C; }
-#sobre-nosotros .img{ max-height:50px; }
+#sobre-nosotros .text-madera{
+  color:#8B5E3C;
+}
+#sobre-nosotros .img{
+  max-height:50px;
+}
+
 
 /* =======================
   FAQ + CONTACTO (END)
@@ -642,6 +600,7 @@ body{ font-family:'Montserrat', sans-serif; }
   z-index:1;
 }
 
+
 /* =======================
   FOOTER
 ======================= */
@@ -653,7 +612,10 @@ body{ font-family:'Montserrat', sans-serif; }
   top:-30px;
   filter:brightness(0) invert(1);
 }
-footer a:hover{ text-decoration:underline; }
+footer a:hover{
+  text-decoration:underline;
+}
+
 
 /* =======================
   UTILITIES
@@ -675,195 +637,16 @@ footer a:hover{ text-decoration:underline; }
 }
 
 
-/* =========================================================
-   PRODUCTO ÚNICO — MINI LANDING (solo cuando #galeria tiene .galeria--single)
-   PÉGALO AL FINAL del styles.css
-========================================================= */
-
-/* Base de la mini landing */
-.producto-landing-title{
-  font-family:'Poppins', sans-serif !important;
-}
-.producto-landing-title strong{ color:#6A3D1A; }
-
-.producto-landing-wrap{
-  display:flex;
-  justify-content:center;
-  padding:0 12px;
-}
-
-.producto-landing-panel{
-  width:min(1280px, 100%);
-  background:#fff;
-  border:1px solid rgba(0,0,0,.06);
-  border-radius:6px;
-  overflow:hidden;
-  box-shadow:0 18px 40px rgba(0,0,0,.12);
-}
-
-.producto-landing-top{
-  display:grid;
-  grid-template-columns:58% 42%;
-  align-items:stretch;
-}
-
-/* ✅ CONTENEDOR CON ALTO FIJO (esto mata la “imagen gigante”) */
-.producto-landing-media{
-  position:relative;
-  height:430px;
-  overflow:hidden;
-  background:#eee;
-}
-
-.producto-landing-img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  object-position:left center;
-  display:block;
-}
-
-/* Fade como mock */
-.producto-landing-fade{
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  background:linear-gradient(
-    90deg,
-    rgba(255,255,255,0) 0%,
-    rgba(255,255,255,0) 46%,
-    rgba(255,255,255,.18) 55%,
-    rgba(255,255,255,.52) 62%,
-    rgba(255,255,255,.78) 70%,
-    rgba(255,255,255,.92) 78%,
-    rgba(255,255,255,1) 86%,
-    rgba(255,255,255,1) 100%
-  );
-}
-
-.producto-landing-content{
-  padding:3rem 3.2rem;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-}
-
-.producto-landing-h3{
-  font-family:'Poppins', sans-serif !important;
-  color:#6A3D1A;
-  font-size:2.6rem;
-  line-height:1.08;
-  margin:0 0 1rem 0;
-}
-
-.producto-landing-desc{
-  color:#6c757d;
-  font-size:1.05rem;
-  line-height:1.7;
-  margin:0 0 1.4rem 0;
-  max-width:52ch;
-}
-
-.producto-landing-list{
-  list-style:none;
-  padding:0;
-  margin:0;
-  display:grid;
-  gap:.95rem;
-}
-.producto-landing-list li{
-  display:flex;
-  align-items:center;
-  gap:.75rem;
-  color:#6c757d;
-  font-size:1.02rem;
-}
-.producto-landing-list i{
-  color:#6A3D1A;
-  font-size:1.25rem;
-}
-
-/* Barra inferior beige */
-.producto-landing-bottom{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:1.2rem;
-  background:#f3e7df;
-  border-top:1px solid rgba(0,0,0,.05);
-  padding:1.35rem 2.2rem;
-}
-.producto-landing-bottom-text{
-  color:#6A3D1A;
-  opacity:.82;
-  font-size:1.02rem;
-  line-height:1.55;
-  max-width:58ch;
-}
-.producto-landing-bottom-actions{
-  display:flex;
-  align-items:center;
-  gap:1rem;
-  flex-wrap:wrap;
-}
-
-/* Botones en single: sin la “barrita” del grid */
-#galeria.galeria--single .btn-ver-trabajos{
-  all:unset;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  cursor:pointer;
-  font-family:'Poppins', sans-serif !important;
-  font-weight:600;
-  color:#6A3D1A;
-  background:#fff;
-  border:1px solid rgba(0,0,0,.15);
-  border-radius:4px;
-  padding:.85rem 1.65rem;
-  text-decoration:underline;
-  text-underline-offset:4px;
-}
-#galeria.galeria--single .btn-ver-trabajos::after{ display:none !important; }
-#galeria.galeria--single .btn-ver-trabajos:hover{
-  border-color:rgba(106,61,26,.45);
-  color:#8B5E3C;
-}
-
-#galeria.galeria--single .producto-landing-cotizar{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:4px;
-  padding:.85rem 1.85rem;
-  background:#6A3D1A;
-  color:#fff;
-  text-decoration:none;
-  font-family:'Poppins', sans-serif !important;
-  font-weight:600;
-}
-#galeria.galeria--single .producto-landing-cotizar:hover{
-  background:#8B5E3C;
-}
-
-/* Responsive */
+/* =======================
+  RESPONSIVE LOGO
+======================= */
 @media (max-width:991px){
-  .producto-landing-top{ grid-template-columns:1fr; }
-  .producto-landing-media{ height:320px; }
-  .producto-landing-fade{
-    background:linear-gradient(
-      180deg,
-      rgba(255,255,255,0) 0%,
-      rgba(255,255,255,.55) 55%,
-      rgba(255,255,255,.92) 78%,
-      rgba(255,255,255,1) 100%
-    );
+  .navbar{
+    padding:1rem 0 !important;
   }
-  .producto-landing-content{ padding:1.6rem 1.6rem 1.9rem; }
-  .producto-landing-h3{ font-size:1.9rem; }
-  .producto-landing-bottom{
-    flex-direction:column;
-    align-items:flex-start;
-    gap:1rem;
+  .logo-navbar{
+    transform:none !important;
+    max-height:100px !important;
+    width:auto !important;
   }
 }
