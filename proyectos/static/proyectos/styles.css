@@ -673,3 +673,197 @@ footer a:hover{ text-decoration:underline; }
   color:#f8f9fa;
   border-bottom-color:#f8f9fa;
 }
+
+
+/* =========================================================
+   PRODUCTO ÚNICO — MINI LANDING (solo cuando #galeria tiene .galeria--single)
+   PÉGALO AL FINAL del styles.css
+========================================================= */
+
+/* Base de la mini landing */
+.producto-landing-title{
+  font-family:'Poppins', sans-serif !important;
+}
+.producto-landing-title strong{ color:#6A3D1A; }
+
+.producto-landing-wrap{
+  display:flex;
+  justify-content:center;
+  padding:0 12px;
+}
+
+.producto-landing-panel{
+  width:min(1280px, 100%);
+  background:#fff;
+  border:1px solid rgba(0,0,0,.06);
+  border-radius:6px;
+  overflow:hidden;
+  box-shadow:0 18px 40px rgba(0,0,0,.12);
+}
+
+.producto-landing-top{
+  display:grid;
+  grid-template-columns:58% 42%;
+  align-items:stretch;
+}
+
+/* ✅ CONTENEDOR CON ALTO FIJO (esto mata la “imagen gigante”) */
+.producto-landing-media{
+  position:relative;
+  height:430px;
+  overflow:hidden;
+  background:#eee;
+}
+
+.producto-landing-img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:left center;
+  display:block;
+}
+
+/* Fade como mock */
+.producto-landing-fade{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:linear-gradient(
+    90deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0) 46%,
+    rgba(255,255,255,.18) 55%,
+    rgba(255,255,255,.52) 62%,
+    rgba(255,255,255,.78) 70%,
+    rgba(255,255,255,.92) 78%,
+    rgba(255,255,255,1) 86%,
+    rgba(255,255,255,1) 100%
+  );
+}
+
+.producto-landing-content{
+  padding:3rem 3.2rem;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.producto-landing-h3{
+  font-family:'Poppins', sans-serif !important;
+  color:#6A3D1A;
+  font-size:2.6rem;
+  line-height:1.08;
+  margin:0 0 1rem 0;
+}
+
+.producto-landing-desc{
+  color:#6c757d;
+  font-size:1.05rem;
+  line-height:1.7;
+  margin:0 0 1.4rem 0;
+  max-width:52ch;
+}
+
+.producto-landing-list{
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:grid;
+  gap:.95rem;
+}
+.producto-landing-list li{
+  display:flex;
+  align-items:center;
+  gap:.75rem;
+  color:#6c757d;
+  font-size:1.02rem;
+}
+.producto-landing-list i{
+  color:#6A3D1A;
+  font-size:1.25rem;
+}
+
+/* Barra inferior beige */
+.producto-landing-bottom{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1.2rem;
+  background:#f3e7df;
+  border-top:1px solid rgba(0,0,0,.05);
+  padding:1.35rem 2.2rem;
+}
+.producto-landing-bottom-text{
+  color:#6A3D1A;
+  opacity:.82;
+  font-size:1.02rem;
+  line-height:1.55;
+  max-width:58ch;
+}
+.producto-landing-bottom-actions{
+  display:flex;
+  align-items:center;
+  gap:1rem;
+  flex-wrap:wrap;
+}
+
+/* Botones en single: sin la “barrita” del grid */
+#galeria.galeria--single .btn-ver-trabajos{
+  all:unset;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  font-family:'Poppins', sans-serif !important;
+  font-weight:600;
+  color:#6A3D1A;
+  background:#fff;
+  border:1px solid rgba(0,0,0,.15);
+  border-radius:4px;
+  padding:.85rem 1.65rem;
+  text-decoration:underline;
+  text-underline-offset:4px;
+}
+#galeria.galeria--single .btn-ver-trabajos::after{ display:none !important; }
+#galeria.galeria--single .btn-ver-trabajos:hover{
+  border-color:rgba(106,61,26,.45);
+  color:#8B5E3C;
+}
+
+#galeria.galeria--single .producto-landing-cotizar{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:4px;
+  padding:.85rem 1.85rem;
+  background:#6A3D1A;
+  color:#fff;
+  text-decoration:none;
+  font-family:'Poppins', sans-serif !important;
+  font-weight:600;
+}
+#galeria.galeria--single .producto-landing-cotizar:hover{
+  background:#8B5E3C;
+}
+
+/* Responsive */
+@media (max-width:991px){
+  .producto-landing-top{ grid-template-columns:1fr; }
+  .producto-landing-media{ height:320px; }
+  .producto-landing-fade{
+    background:linear-gradient(
+      180deg,
+      rgba(255,255,255,0) 0%,
+      rgba(255,255,255,.55) 55%,
+      rgba(255,255,255,.92) 78%,
+      rgba(255,255,255,1) 100%
+    );
+  }
+  .producto-landing-content{ padding:1.6rem 1.6rem 1.9rem; }
+  .producto-landing-h3{ font-size:1.9rem; }
+  .producto-landing-bottom{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:1rem;
+  }
+}
