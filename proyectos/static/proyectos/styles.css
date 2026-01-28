@@ -122,7 +122,7 @@ body{ font-family:'Montserrat', sans-serif; }
 }
 #galeria p{ color:#6c757d; }
 
-/* Card base (grid normal) */
+/* Cards (grid normal) */
 .card{
   border-radius:0;
   transform:scale(.9);
@@ -143,7 +143,7 @@ body{ font-family:'Montserrat', sans-serif; }
   letter-spacing:.5px;
 }
 
-/* Subtle hover underline button (lo usas en grid y single) */
+/* Botón underline (base) */
 .btn-ver-trabajos{
   all:unset;
   font-family:'Poppins', sans-serif !important;
@@ -173,39 +173,30 @@ body{ font-family:'Montserrat', sans-serif; }
 
 /* =======================
   PRODUCTO ÚNICO: MINI LANDING (BASE)
-  - No depende de bootstrap cards
-  - Se aplica solo a tu layout de 1 producto
 ======================= */
-
-/* título */
 .producto-landing-title{
   font-family:'Poppins', sans-serif !important;
 }
 .producto-landing-title strong{ color:#6A3D1A; }
 
-/* wrapper centrado */
 .producto-landing-wrap{
   display:flex;
   justify-content:center;
   padding:0 12px;
 }
-
-/* panel */
 .producto-landing-panel{
   width:min(1220px, 100%);
   background:#fff;
   border-radius:18px;
   overflow:hidden;
 }
-
-/* layout superior */
 .producto-landing-top{
   display:grid;
   grid-template-columns:1.12fr 1fr;
   align-items:stretch;
 }
 
-/* media (BASE) */
+/* Media base (sin height fijo aquí; lo fija el modo single abajo) */
 .producto-landing-media{
   position:relative;
   background:#eee;
@@ -218,15 +209,13 @@ body{ font-family:'Montserrat', sans-serif; }
   object-position:left center;
   display:block;
 }
-
-/* fade */
 .producto-landing-fade{
   position:absolute;
   inset:0;
   pointer-events:none;
 }
 
-/* contenido */
+/* Content */
 .producto-landing-content{
   padding:2.4rem 2.6rem;
   display:flex;
@@ -266,7 +255,7 @@ body{ font-family:'Montserrat', sans-serif; }
   font-size:1.35rem;
 }
 
-/* barra inferior */
+/* Bottom base */
 .producto-landing-bottom{
   display:flex;
   align-items:center;
@@ -290,7 +279,6 @@ body{ font-family:'Montserrat', sans-serif; }
 }
 .producto-landing-ver{ font-size:1.15rem; }
 
-/* botón sólido */
 .producto-landing-cotizar{
   display:inline-flex;
   align-items:center;
@@ -311,73 +299,152 @@ body{ font-family:'Montserrat', sans-serif; }
 }
 
 /* =======================
-  OVERRIDE “CLAVADO AL MOCK”
-  Solo cuando el section tiene .galeria--single
+  SINGLE PRODUCT — CLAVADO AL MOCK
+  (solo cuando #galeria tiene .galeria--single)
 ======================= */
-.galeria--single{
-  background: radial-gradient(1200px 300px at 50% 0%, rgba(106,61,26,.08), rgba(255,255,255,0) 60%),
-              linear-gradient(180deg, #fff 0%, #fbf8f5 55%, #fff 100%);
-  padding-bottom: 2.5rem;
+#galeria.galeria--single{
+  background:#ffffff;
+  padding:2.2rem 0 3.2rem;
 }
 
-/* Panel más pro y no tan ancho */
-.galeria--single .producto-landing-panel{
-  width: min(1120px, 100%);
-  border: 1px solid rgba(0,0,0,.05);
-  box-shadow: 0 18px 45px rgba(0,0,0,.12);
+/* Título mock */
+#galeria.galeria--single .producto-landing-title{
+  font-family:'Montserrat', sans-serif !important;
+  font-size:clamp(2.1rem, 2.8vw, 3rem);
+  font-weight:500;
+  letter-spacing:.5px;
+  color:#6c757d;
+  margin-bottom:2.2rem;
+}
+#galeria.galeria--single .producto-landing-title strong{
+  color:#6A3D1A;
+  font-weight:700;
+  letter-spacing:1px;
 }
 
-/* ✅ CLAVE: controlar tamaño de imagen como el mock */
-.galeria--single .producto-landing-media{
-  height: 360px;          /* 👈 aquí se arregla el “gigante” */
-}
-.galeria--single .producto-landing-img{
-  height: 100%;
+/* Panel mock */
+#galeria.galeria--single .producto-landing-panel{
+  width:min(1280px, 100%);
+  border-radius:6px;
+  border:1px solid rgba(0,0,0,.06);
+  box-shadow:0 18px 40px rgba(0,0,0,.12);
 }
 
-/* Fade fuerte como mock */
-.galeria--single .producto-landing-fade{
-  background: linear-gradient(
-    to right,
+/* Grid mock */
+#galeria.galeria--single .producto-landing-top{
+  grid-template-columns:58% 42%;
+}
+
+/* ✅ Alto fijo como mock (control imagen) */
+#galeria.galeria--single .producto-landing-media{
+  height:430px;
+  min-height:430px;
+  max-height:430px;
+}
+#galeria.galeria--single .producto-landing-img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:left center;
+}
+
+/* Fade mock */
+#galeria.galeria--single .producto-landing-fade{
+  background:linear-gradient(
+    90deg,
     rgba(255,255,255,0) 0%,
-    rgba(255,255,255,.10) 42%,
-    rgba(255,255,255,.45) 58%,
-    rgba(255,255,255,.80) 70%,
-    rgba(255,255,255,.96) 82%,
+    rgba(255,255,255,0) 46%,
+    rgba(255,255,255,.18) 55%,
+    rgba(255,255,255,.52) 62%,
+    rgba(255,255,255,.78) 70%,
+    rgba(255,255,255,.92) 78%,
+    rgba(255,255,255,1) 86%,
     rgba(255,255,255,1) 100%
   );
 }
 
-/* Barra inferior beige como mock */
-.galeria--single .producto-landing-bottom{
-  background: #fbf4ee;
+/* Content mock */
+#galeria.galeria--single .producto-landing-content{
+  padding:3.0rem 3.2rem;
+}
+#galeria.galeria--single .producto-landing-h3{
+  font-size:2.6rem;
+  line-height:1.08;
+}
+#galeria.galeria--single .producto-landing-desc{
+  max-width:52ch;
 }
 
-/* “Ver Trabajos” tipo outline + underline como mock */
-.galeria--single .producto-landing-ver{
+/* Lista mock */
+#galeria.galeria--single .producto-landing-list{ gap:.95rem; }
+#galeria.galeria--single .producto-landing-list li{ font-size:1.02rem; }
+#galeria.galeria--single .producto-landing-list i{ font-size:1.25rem; }
+
+/* Bottom mock */
+#galeria.galeria--single .producto-landing-bottom{
+  background:#f3e7df;
+  border-top:1px solid rgba(0,0,0,.05);
+  padding:1.35rem 2.2rem;
+}
+#galeria.galeria--single .producto-landing-bottom-text{
+  opacity:.82;
+  font-size:1.02rem;
+  max-width:58ch;
+}
+
+/* Botones mock (mata la barrita underline del base) */
+#galeria.galeria--single .btn-ver-trabajos{
+  all:unset;
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  padding: .85rem 1.35rem;
-  border-radius: 10px;
-  border: 2px solid rgba(106,61,26,.25);
-  background: #fff;
-  text-decoration: underline;
-  font-weight: 600;
+  cursor:pointer;
+  font-family:'Poppins', sans-serif !important;
+  font-weight:600;
+  color:#6A3D1A;
+  background:#fff;
+  border:1px solid rgba(0,0,0,.15);
+  border-radius:4px;
+  padding:.85rem 1.65rem;
+  text-decoration:underline;
+  text-underline-offset:4px;
 }
-.galeria--single .producto-landing-ver:hover{
-  border-color: rgba(139,94,60,.55);
-  color: #8B5E3C;
+#galeria.galeria--single .btn-ver-trabajos::after{ display:none; }
+#galeria.galeria--single .btn-ver-trabajos:hover{
+  border-color:rgba(106,61,26,.45);
+  color:#8B5E3C;
 }
 
-/* Responsive */
+#galeria.galeria--single .producto-landing-cotizar{
+  border-radius:4px;
+  padding:.85rem 1.85rem;
+}
+#galeria.galeria--single .producto-landing-cotizar:hover{
+  transform:none;
+}
+
+/* Responsive mock */
 @media (max-width:991px){
-  .producto-landing-top{ grid-template-columns:1fr; }
-  .galeria--single .producto-landing-media{ height: 300px; }
+  .navbar{ padding:1rem 0 !important; }
+  .logo-navbar{
+    transform:none !important;
+    max-height:100px !important;
+    width:auto !important;
+  }
 
-  .galeria--single .producto-landing-fade{
-    background: linear-gradient(
-      to top,
+  #galeria.galeria--single .producto-landing-top{
+    grid-template-columns:1fr;
+  }
+
+  #galeria.galeria--single .producto-landing-media{
+    height:320px;
+    min-height:320px;
+    max-height:320px;
+  }
+
+  #galeria.galeria--single .producto-landing-fade{
+    background:linear-gradient(
+      180deg,
       rgba(255,255,255,0) 0%,
       rgba(255,255,255,.55) 55%,
       rgba(255,255,255,.92) 78%,
@@ -385,15 +452,20 @@ body{ font-family:'Montserrat', sans-serif; }
     );
   }
 
-  .producto-landing-content{ padding:1.5rem 1.5rem 1.7rem; }
-  .producto-landing-h3{ font-size:1.7rem; }
+  #galeria.galeria--single .producto-landing-content{
+    padding:1.6rem 1.6rem 1.9rem;
+  }
 
-  .producto-landing-bottom{
+  #galeria.galeria--single .producto-landing-h3{
+    font-size:1.9rem;
+  }
+
+  #galeria.galeria--single .producto-landing-bottom{
     flex-direction:column;
     align-items:flex-start;
+    gap:1rem;
   }
 }
-
 
 /* =======================
   SERVICIOS
@@ -472,6 +544,7 @@ body{ font-family:'Montserrat', sans-serif; }
   object-fit:contain;
   display:block;
 }
+
 /* Flechas */
 #modalImagen .modal-nav{
   position:absolute;
@@ -506,6 +579,7 @@ body{ font-family:'Montserrat', sans-serif; }
   line-height:1;
   text-shadow:none;
 }
+
 /* Cerrar fijo */
 #modalImagen .modal-close-fixed{
   position:fixed;
@@ -523,7 +597,6 @@ body{ font-family:'Montserrat', sans-serif; }
   backdrop-filter:none !important;
   opacity:1;
 }
-/* X blanca */
 #modalImagen .btn-close.btn-close-white.modal-close-fixed{
   background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e");
   background-repeat:no-repeat;
@@ -586,6 +659,7 @@ footer a:hover{ text-decoration:underline; }
   UTILITIES
 ======================= */
 .text-justificado{ text-align:justify!important; }
+
 .btn-solo-underline{
   all:unset;
   font-family:'Montserrat', sans-serif;
@@ -599,249 +673,3 @@ footer a:hover{ text-decoration:underline; }
   color:#f8f9fa;
   border-bottom-color:#f8f9fa;
 }
-
-/* =======================
-  RESPONSIVE LOGO
-======================= */
-@media (max-width:991px){
-  .navbar{ padding:1rem 0 !important; }
-  .logo-navbar{
-    transform:none !important;
-    max-height:100px !important;
-    width:auto !important;
-  }
-}
-
-/* =======================
-   FIX DEFINITIVO: imagen gigante producto único
-   (pégalo AL FINAL del styles.css)
-======================= */
-
-/* El contenedor SIEMPRE con alto fijo */
-.producto-landing-media{
-  height: 360px !important;
-  min-height: 360px !important;
-  max-height: 360px !important;
-  overflow: hidden !important;
-}
-
-/* La imagen SIEMPRE calza dentro del contenedor */
-.producto-landing-img{
-  width: 100% !important;
-  height: 100% !important;
-  max-height: 100% !important;
-  object-fit: cover !important;
-  display: block !important;
-}
-
-/* Mobile */
-@media (max-width: 991px){
-  .producto-landing-media{
-    height: 300px !important;
-    min-height: 300px !important;
-    max-height: 300px !important;
-  }
-}
-
-/* =========================================================
-   SINGLE PRODUCT — CLAVADO AL MOCK (solo 1 producto)
-   PÉGALO AL FINAL del styles.css (después de TODO)
-========================================================= */
-#galeria.galeria--single{
-  background: #ffffff;
-  padding: 2.2rem 0 3.2rem;
-}
-
-/* Título “Nuestros PRODUCTOS” como el mock */
-#galeria.galeria--single .producto-landing-title{
-  font-family: 'Montserrat', sans-serif !important;
-  font-size: clamp(2.1rem, 2.8vw, 3rem);
-  font-weight: 500;
-  letter-spacing: .5px;
-  color: #6c757d;
-  margin-bottom: 2.2rem;
-}
-#galeria.galeria--single .producto-landing-title strong{
-  color:#6A3D1A;
-  font-weight: 700;
-  letter-spacing: 1px;
-}
-
-/* Panel centrado con sombra suave */
-#galeria.galeria--single .producto-landing-panel{
-  width: min(1280px, 100%);
-  border-radius: 6px;
-  border: 1px solid rgba(0,0,0,.06);
-  box-shadow: 0 18px 40px rgba(0,0,0,.12);
-  background: #fff;
-  overflow: hidden;
-}
-
-/* Layout igual al mock */
-#galeria.galeria--single .producto-landing-top{
-  grid-template-columns: 58% 42%;
-  align-items: stretch;
-}
-
-/* ✅ Alto “hero” (más grande que tu fix de 360) */
-#galeria.galeria--single .producto-landing-media{
-  height: 430px !important;
-  min-height: 430px !important;
-  max-height: 430px !important;
-  position: relative;
-  overflow: hidden;
-  background: #eee;
-}
-#galeria.galeria--single .producto-landing-img{
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
-  object-position: left center !important;
-  display:block !important;
-}
-
-/* Fade como el mock: parte más tarde y termina full blanco */
-#galeria.galeria--single .producto-landing-fade{
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  background: linear-gradient(
-    90deg,
-    rgba(255,255,255,0) 0%,
-    rgba(255,255,255,0) 46%,
-    rgba(255,255,255,.18) 55%,
-    rgba(255,255,255,.52) 62%,
-    rgba(255,255,255,.78) 70%,
-    rgba(255,255,255,.92) 78%,
-    rgba(255,255,255,1) 86%,
-    rgba(255,255,255,1) 100%
-  );
-}
-
-/* Contenido con paddings y tamaños del mock */
-#galeria.galeria--single .producto-landing-content{
-  padding: 3.0rem 3.2rem;
-}
-#galeria.galeria--single .producto-landing-h3{
-  font-family:'Poppins', sans-serif !important;
-  color:#6A3D1A;
-  font-size: 2.6rem;
-  line-height: 1.08;
-  margin: 0 0 1rem 0;
-}
-#galeria.galeria--single .producto-landing-desc{
-  color:#6c757d;
-  font-size: 1.05rem;
-  line-height: 1.7;
-  margin: 0 0 1.4rem 0;
-  max-width: 52ch;
-}
-
-/* Lista checks */
-#galeria.galeria--single .producto-landing-list{
-  gap: .95rem;
-}
-#galeria.galeria--single .producto-landing-list li{
-  font-size: 1.02rem;
-}
-#galeria.galeria--single .producto-landing-list i{
-  color:#6A3D1A;
-  font-size: 1.25rem;
-}
-
-/* Barra inferior beige como el mock */
-#galeria.galeria--single .producto-landing-bottom{
-  background: #f3e7df; /* beige suave */
-  border-top: 1px solid rgba(0,0,0,.05);
-  padding: 1.35rem 2.2rem;
-  align-items: center;
-}
-#galeria.galeria--single .producto-landing-bottom-text{
-  color:#6A3D1A;
-  opacity: .82;
-  font-size: 1.02rem;
-  max-width: 58ch;
-}
-
-/* =========================
-   Botones igual al mock
-   - Ver Trabajos: outline + underline normal
-   - Cotizar: sólido café
-========================= */
-
-/* Mata tu underline “barrita” SOLO en single */
-#galeria.galeria--single .btn-ver-trabajos{
-  all: unset;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  font-family:'Poppins', sans-serif !important;
-  font-weight: 600;
-  color:#6A3D1A;
-  background:#fff;
-  border: 1px solid rgba(0,0,0,.15);
-  border-radius: 4px;
-  padding: .85rem 1.65rem;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
-#galeria.galeria--single .btn-ver-trabajos::after{
-  display:none !important;
-}
-#galeria.galeria--single .btn-ver-trabajos:hover{
-  border-color: rgba(106,61,26,.45);
-  color:#8B5E3C;
-}
-
-/* Cotizar sólido */
-#galeria.galeria--single .producto-landing-cotizar{
-  border-radius: 4px;
-  padding: .85rem 1.85rem;
-  background:#6A3D1A;
-  color:#fff;
-  text-decoration:none;
-  font-family:'Poppins', sans-serif !important;
-  font-weight: 600;
-}
-#galeria.galeria--single .producto-landing-cotizar:hover{
-  background:#8B5E3C;
-  transform: none; /* el mock es más “quieto” */
-}
-
-/* Responsive: apila y cambia el fade a vertical */
-@media (max-width: 991px){
-  #galeria.galeria--single .producto-landing-top{
-    grid-template-columns: 1fr;
-  }
-
-  #galeria.galeria--single .producto-landing-media{
-    height: 320px !important;
-    min-height: 320px !important;
-    max-height: 320px !important;
-  }
-
-  #galeria.galeria--single .producto-landing-fade{
-    background: linear-gradient(
-      180deg,
-      rgba(255,255,255,0) 0%,
-      rgba(255,255,255,.55) 55%,
-      rgba(255,255,255,.92) 78%,
-      rgba(255,255,255,1) 100%
-    );
-  }
-
-  #galeria.galeria--single .producto-landing-content{
-    padding: 1.6rem 1.6rem 1.9rem;
-  }
-  #galeria.galeria--single .producto-landing-h3{
-    font-size: 1.9rem;
-  }
-
-  #galeria.galeria--single .producto-landing-bottom{
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-  }
-}
-

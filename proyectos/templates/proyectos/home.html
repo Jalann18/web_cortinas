@@ -40,8 +40,8 @@
     <!-- Logo -->
     <a class="navbar-brand me-auto" href="#inicio">
       <img src="{% static 'proyectos/logo_ccs.png' %}"
-          alt="Cortinas Hanga Roa logo"
-          class="logo-navbar">
+           alt="Cortinas Hanga Roa logo"
+           class="logo-navbar">
     </a>
 
     <!-- Menú colapsable -->
@@ -63,7 +63,6 @@
     </div>
   </div>
 </nav>
-
 
 <!-- ============ HERO / CARRUSEL ============ -->
 <header id="inicio" class="container-fluid px-0">
@@ -101,9 +100,9 @@
   </div>
 </section>
 
-<!-- ============ PRODUCTOS ============ -->
+<!-- ============ PRODUCTOS (AUTO: 1 = LANDING / +1 = GRID) ============ -->
 <section id="galeria" class="py-4 bg-white {% if productos|length == 1 %}galeria--single{% endif %}">
-  <div class="container-fluid px-3">
+  <div class="{% if productos|length == 1 %}container{% else %}container-fluid px-3{% endif %}">
 
     <h2 class="mb-5 px-3 text-center producto-landing-title">
       Nuestros <strong>PRODUCTOS</strong>
@@ -113,10 +112,12 @@
       {% for producto in productos %}
 
         <div class="producto-landing-wrap">
-          <div class="producto-landing-panel shadow-lg">
+          <div class="producto-landing-panel">
 
-            <!-- Bloque superior: imagen + contenido -->
+            <!-- Top: imagen + contenido -->
             <div class="producto-landing-top">
+
+              <!-- Media: contenedor fijo (alto controlado por CSS single) -->
               <div class="producto-landing-media">
                 <img
                   src="{{ producto.imagen.url }}"
@@ -126,6 +127,7 @@
                 <span class="producto-landing-fade"></span>
               </div>
 
+              <!-- Content -->
               <div class="producto-landing-content">
                 <h3 class="producto-landing-h3">{{ producto.nombre }}</h3>
 
@@ -142,17 +144,15 @@
               </div>
             </div>
 
-            <!-- Barra inferior -->
+            <!-- Bottom -->
             <div class="producto-landing-bottom">
               <p class="producto-landing-bottom-text mb-0">
                 Nuestras cortinas a medida, hechas con materiales nobles y una instalación profesional impecable.
               </p>
 
               <div class="producto-landing-bottom-actions">
-                <a
-                  href="{% url 'detalle_producto' producto.id %}"
-                  class="btn-ver-trabajos producto-landing-ver"
-                >
+                <a href="{% url 'detalle_producto' producto.id %}"
+                   class="btn-ver-trabajos producto-landing-ver">
                   Ver Trabajos
                 </a>
 
@@ -167,7 +167,7 @@
 
       {% endfor %}
     {% else %}
-      <!-- ✅ VARIOS PRODUCTOS: GRID NORMAL (NO TOCAR) -->
+      <!-- ✅ VARIOS PRODUCTOS: GRID NORMAL -->
       <div class="row justify-content-center g-1">
         {% for producto in productos %}
           <div class="col-12 col-sm-6 col-lg-4">
@@ -191,8 +191,6 @@
 
   </div>
 </section>
-
-
 
 <!-- ============ SERVICIOS ============ -->
 <section id="servicios" class="py-5">
