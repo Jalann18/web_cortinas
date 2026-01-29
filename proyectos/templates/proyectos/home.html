@@ -102,30 +102,94 @@
 </section>
 
 <!-- ============ PRODUCTOS ============ -->
-<section id="galeria" class="py-4 bg-white">
+<section id="galeria" class="py-4 bg-white {% if productos|length == 1 %}galeria--single{% endif %}">
   <div class="container-fluid px-3">
-    <h2 class="mb-5 px-3">Nuestros <strong>PRODUCTOS</strong></h2>
-    <div class="row justify-content-center g-1">
+
+    <!-- Título: se mantiene, pero en single le aplican los estilos del mock -->
+    <h2 class="mb-5 px-3 {% if productos|length == 1 %}text-center producto-landing-title{% endif %}">
+      Nuestros <strong>PRODUCTOS</strong>
+    </h2>
+
+    {% if productos|length == 1 %}
       {% for producto in productos %}
-      <div class="col-12 col-sm-6 col-lg-4">
-        <div class="card border-0 h-100 shadow-lg rounded-2xl overflow-hidden d-flex flex-column">
-          <img src="{{ producto.imagen.url }}"
-               class="card-img-top"
-               alt="{{ producto.nombre }}">
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title">{{ producto.nombre }}</h5>
-            <p class="card-text">{{ producto.descripcion }}</p>
-            <a href="{% url 'detalle_producto' producto.id %}"
-               class="btn-ver-trabajos mt-auto">
-               Ver Trabajos
-            </a>
+        <div class="producto-landing-wrap">
+          <div class="producto-landing-panel">
+
+            <!-- Arriba: Imagen + contenido -->
+            <div class="producto-landing-top">
+              <div class="producto-landing-media">
+                <img
+                  src="{{ producto.imagen.url }}"
+                  alt="{{ producto.nombre }}"
+                  class="producto-landing-img"
+                  loading="lazy"
+                >
+                <span class="producto-landing-fade" aria-hidden="true"></span>
+              </div>
+
+              <div class="producto-landing-content">
+                <h3 class="producto-landing-h3">{{ producto.nombre }}</h3>
+
+                <p class="producto-landing-desc">
+                  {{ producto.descripcion }}
+                </p>
+
+                <ul class="producto-landing-list">
+                  <li><i class="bi bi-check2"></i> Fabricadas a medida</li>
+                  <li><i class="bi bi-check2"></i> Madera natural seleccionada</li>
+                  <li><i class="bi bi-check2"></i> Instalación profesional incluida</li>
+                  <li><i class="bi bi-check2"></i> Garantía real</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Abajo: barra beige + botones -->
+            <div class="producto-landing-bottom">
+              <p class="producto-landing-bottom-text mb-0">
+                Nuestras cortinas a medida, hechas con materiales nobles y una instalación profesional impecable.
+              </p>
+
+              <div class="producto-landing-bottom-actions">
+                <a href="{% url 'detalle_producto' producto.id %}"
+                   class="btn-ver-trabajos producto-landing-ver">
+                  Ver Trabajos
+                </a>
+                <a href="#end" class="producto-landing-cotizar">
+                  Cotizar
+                </a>
+              </div>
+            </div>
+
           </div>
         </div>
-      </div>
       {% endfor %}
-    </div>
+
+    {% else %}
+      <!-- ✅ VARIOS PRODUCTOS: tu grid original SIN TOCAR -->
+      <div class="row justify-content-center g-1">
+        {% for producto in productos %}
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="card border-0 h-100 shadow-lg rounded-2xl overflow-hidden d-flex flex-column">
+            <img src="{{ producto.imagen.url }}"
+                 class="card-img-top"
+                 alt="{{ producto.nombre }}">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">{{ producto.nombre }}</h5>
+              <p class="card-text">{{ producto.descripcion }}</p>
+              <a href="{% url 'detalle_producto' producto.id %}"
+                 class="btn-ver-trabajos mt-auto">
+                 Ver Trabajos
+              </a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+
   </div>
 </section>
+
 
 
 <!-- ============ SERVICIOS ============ -->
