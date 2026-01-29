@@ -1,0 +1,36 @@
+* [33m7f709c3[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Update home + styles (landing single product mock)
+* [33m8b6a0e3[m Resolve conflict: keep upstream home.html
+* [33mc361b86[m Aaaa
+* [33m07715d8[m aaa
+* [33m1ffaabe[m quitar in line html
+* [33m4aab496[m ojala ahora si mini landing
+* [33m226c4eb[m a
+* [33m8b96d35[m 3er intento fix
+* [33me171d67[m 2 intento de fix imagen
+* [33ma2698d6[m cambio mini landing productos fix imagen giigante
+* [33mfb2554f[m update css
+* [33ma8f8105[m landing en productos
+* [33m33387c0[m Update estilos + producto único
+* [33mdc76e5a[m Update estilos + producto único
+* [33mbe2a0e2[m Update estilos + producto único
+* [33me77ecb2[m Initial commit from PythonAnywhere
+* [33m8304939[m Fix: modal detalle producto igual al home (CSS limpio + nav reset)
+* [33md43fa1a[m Fix: modal detalle producto igual al home (flechas + X + sin scroll)
+* [33me3dd62e[m style(modal): controles limpios y más pequeños
+* [33m552d933[m style(modal): botón cerrar fijo arriba derecha + navegación modal
+* [33m33ed0b2[m style(modal): optimize modal controls css
+* [33mbae3dd7[m feat(modal): add fixed close button in home page modal
+* [33m1f4974b[m style(modal): flechas flotantes centradas y pegadas a la imagen
+* [33m7b966ca[m feat(galeria): navegacion en modal con botones y flechas (sin carousel)
+* [33m70cce67[m se agrega link de whatsapp en footer
+* [33mc1cad0c[m Add WhatsApp links and lead email notification
+* [33mad8b0e1[m Fix ALLOWED_HOSTS/CSRF for PythonAnywhere free + clean settings
+* [33m844f8d7[m Config producción: MySQL + Cloudinary + static + seguridad
+* [33m4a6bcb9[m Remove pycache files from repo and respect gitignore
+* [33m18a1421[m Configure MySQL and Cloudinary using environment variables
+* [33md206ff7[m Prepare settings.py for env variables
+* [33m09e30be[m Prepare settings.py for env variables
+* [33mbac3b8b[m Agrego dependencias para deploy
+* [33m5831d80[m Agrego requirements.txt
+* [33m9968d55[m Fix: aplicar .gitignore correctamente
+* [33md1cfc0f[m Subo proyecto Django web cortinas
