@@ -106,9 +106,11 @@
   <div class="container-fluid px-3">
 
     <!-- Título: se mantiene, pero en single le aplican los estilos del mock -->
-    <h2 class="mb-5 px-3 {% if productos|length == 1 %}text-center producto-landing-title{% endif %}">
-      Nuestros <strong>PRODUCTOS</strong>
-    </h2>
+      {% if productos|length != 1 %}
+        <h2 class="mb-5 px-3">
+          Nuestros <strong>PRODUCTOS</strong>
+        </h2>
+      {% endif %}
 
     {% if productos|length == 1 %}
       {% for producto in productos %}
