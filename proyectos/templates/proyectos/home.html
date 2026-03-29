@@ -135,8 +135,10 @@
         <div class="producto-landing-wrap">
           <div class="producto-landing-panel">
 
-            <!-- Arriba: Imagen + contenido -->
+            <!-- Imagen + contenido -->
             <div class="producto-landing-top">
+
+              <!-- IMAGEN sin fade -->
               <div class="producto-landing-media">
                 <img
                   src="{{ producto.imagen.url }}"
@@ -144,39 +146,46 @@
                   class="producto-landing-img"
                   loading="lazy"
                 >
-                <span class="producto-landing-fade" aria-hidden="true"></span>
+                <!-- overlay oscuro al hacer hover -->
+                <div class="producto-landing-overlay"></div>
+                <!-- Badge año -->
+                <span class="producto-landing-badge">Desde 1980</span>
               </div>
 
+              <!-- CONTENIDO -->
               <div class="producto-landing-content">
+                <p class="producto-landing-eyebrow">Producto destacado</p>
                 <h3 class="producto-landing-h3">{{ producto.nombre }}</h3>
-
-                <p class="producto-landing-desc">
-                  {{ producto.descripcion }}
-                </p>
+                <p class="producto-landing-desc">{{ producto.descripcion }}</p>
 
                 <ul class="producto-landing-list">
-                  <li><i class="bi bi-check2"></i> Fabricadas a medida</li>
-                  <li><i class="bi bi-check2"></i> Madera natural seleccionada</li>
-                  <li><i class="bi bi-check2"></i> Instalación profesional incluida</li>
-                  <li><i class="bi bi-check2"></i> Garantía real</li>
+                  <li>
+                    <span class="plf-icon"><i class="bi bi-rulers"></i></span>
+                    Fabricadas a medida
+                  </li>
+                  <li>
+                    <span class="plf-icon"><i class="bi bi-tree"></i></span>
+                    Madera natural seleccionada
+                  </li>
+                  <li>
+                    <span class="plf-icon"><i class="bi bi-tools"></i></span>
+                    Instalación profesional incluida
+                  </li>
+                  <li>
+                    <span class="plf-icon"><i class="bi bi-shield-check"></i></span>
+                    Garantía real
+                  </li>
                 </ul>
-              </div>
-            </div>
 
-            <!-- Abajo: barra beige + botones -->
-            <div class="producto-landing-bottom">
-              <p class="producto-landing-bottom-text mb-0">
-                Nuestras cortinas a medida, hechas con materiales nobles y una instalación profesional impecable.
-              </p>
-
-              <div class="producto-landing-bottom-actions">
-                <a href="{% url 'detalle_producto' producto.id %}"
-                   class="btn-ver-trabajos producto-landing-ver">
-                  Ver Trabajos
-                </a>
-                <a href="#end" class="producto-landing-cotizar">
-                  Cotizar
-                </a>
+                <!-- Botones dentro del contenido -->
+                <div class="producto-landing-actions">
+                  <a href="{% url 'detalle_producto' producto.id %}" class="pl-btn-secondary">
+                    <i class="bi bi-images"></i> Ver trabajos
+                  </a>
+                  <a href="#end" class="pl-btn-primary">
+                    Cotizar <i class="bi bi-arrow-right"></i>
+                  </a>
+                </div>
               </div>
             </div>
 
