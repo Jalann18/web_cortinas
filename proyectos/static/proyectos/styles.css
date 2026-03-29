@@ -1245,24 +1245,184 @@ footer .list-inline-item a:hover {
 }
 
 /* ── RESPONSIVE ── */
+
+/* ==============================================
+   DISEÑO PREMIUM SPLIT — PRODUCTO ÚNICO
+   ============================================== */
+.galeria--single .pl-split {
+  display: flex;
+  min-height: 550px;
+  background: #fff;
+  overflow: hidden;
+  margin: 2rem auto;
+  max-width: 1400px;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 40px 100px rgba(0,0,0,0.12);
+  border: 1px solid rgba(0,0,0,0.04);
+}
+
+/* Lado Imagen */
+.pl-split__img {
+  width: 60%;
+  position: relative;
+  overflow: hidden;
+  background: #221a15;
+}
+.pl-split__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 1s var(--ease);
+  opacity: 0.95;
+}
+.pl-split:hover .pl-split__img img {
+  transform: scale(1.08);
+}
+
+/* Badge Premium */
+.pl-split__badge {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 99px;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* Lado Contenido */
+.pl-split__body {
+  width: 40%;
+  padding: 4rem 3.5rem;
+  background: #fafaf8; /* Crema muy suave */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.pl-split__eyebrow {
+  color: var(--color-accent);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.pl-split__title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 3.5vw, 3.2rem);
+  font-weight: 800;
+  color: var(--color-text);
+  line-height: 1.05;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.pl-split__desc {
+  color: var(--color-muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+}
+
+/* Lista Modernizada */
+.pl-split__list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 3rem 0;
+  display: grid;
+  gap: 1.2rem;
+}
+.pl-split__list li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--color-text);
+}
+.pl-split__icon {
+  width: 38px;
+  height: 38px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  color: var(--color-primary);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  font-size: 1.1rem;
+}
+
+/* Acciones */
+.pl-split__actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.pl-split__btn--fill {
+  padding: 1rem 2rem;
+  background: var(--grad-primary);
+  color: #fff;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: all var(--duration) var(--ease);
+  box-shadow: 0 10px 25px rgba(124, 74, 30, 0.25);
+}
+.pl-split__btn--fill:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(124, 74, 30, 0.35);
+  color: #fff;
+}
+
+.pl-split__btn--outline {
+  padding: 1rem 2rem;
+  border: 2px solid rgba(124, 74, 30, 0.25);
+  color: var(--color-primary);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: all var(--duration) var(--ease);
+}
+.pl-split__btn--outline:hover {
+  background: #eee;
+  border-color: var(--color-primary);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1100px) {
+  .pl-split__body { padding: 3rem 2rem; }
+  .pl-split__title { font-size: 2.2rem; }
+}
+
 @media (max-width: 991px) {
-  #galeria.galeria--single .producto-landing-top {
-    grid-template-columns: 1fr;
-    height: auto;
-  }
-  #galeria.galeria--single .producto-landing-media {
-    height: 280px;
-  }
-  #galeria.galeria--single .producto-landing-content {
-    padding: 1.8rem 1.6rem;
-  }
-  #galeria.galeria--single .producto-landing-content::before {
-    top: 1.8rem;
-  }
-  #galeria.galeria--single .producto-landing-h3 {
-    font-size: 1.7rem;
-  }
-  #galeria.galeria--single .producto-landing-actions {
+  #galeria.galeria--single { padding: 2rem 1rem; }
+  .pl-split {
     flex-direction: column;
+    height: auto;
+    min-height: auto;
+    margin: 1rem auto;
   }
+  .pl-split__img, .pl-split__body {
+    width: 100%;
+  }
+  .pl-split__img { height: 320px; }
+  .pl-split__body { padding: 2.5rem 2rem; }
 }
