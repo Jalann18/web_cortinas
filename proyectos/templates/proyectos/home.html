@@ -120,8 +120,8 @@
 </section>
 
 <!-- ============ PRODUCTOS ============ -->
-<section id="galeria" class="py-4 bg-white {% if productos|length == 1 %}galeria--single{% endif %}">
-  <div class="container-fluid px-3">
+<section id="galeria" class="{% if productos|length == 1 %}galeria--single{% else %}py-4 bg-white{% endif %}">
+  <div class="{% if productos|length == 1 %}px-0{% else %}container-fluid px-3{% endif %}">
 
     <!-- Título: se mantiene, pero en single le aplican los estilos del mock -->
       {% if productos|length != 1 %}
@@ -132,64 +132,37 @@
 
     {% if productos|length == 1 %}
       {% for producto in productos %}
-        <div class="producto-landing-wrap">
-          <div class="producto-landing-panel">
+        <div class="pl-split">
 
-            <!-- Imagen + contenido -->
-            <div class="producto-landing-top">
-
-              <!-- IMAGEN sin fade -->
-              <div class="producto-landing-media">
-                <img
-                  src="{{ producto.imagen.url }}"
-                  alt="{{ producto.nombre }}"
-                  class="producto-landing-img"
-                  loading="lazy"
-                >
-                <!-- overlay oscuro al hacer hover -->
-                <div class="producto-landing-overlay"></div>
-                <!-- Badge año -->
-                <span class="producto-landing-badge">Desde 1980</span>
-              </div>
-
-              <!-- CONTENIDO -->
-              <div class="producto-landing-content">
-                <p class="producto-landing-eyebrow">Producto destacado</p>
-                <h3 class="producto-landing-h3">{{ producto.nombre }}</h3>
-                <p class="producto-landing-desc">{{ producto.descripcion }}</p>
-
-                <ul class="producto-landing-list">
-                  <li>
-                    <span class="plf-icon"><i class="bi bi-rulers"></i></span>
-                    Fabricadas a medida
-                  </li>
-                  <li>
-                    <span class="plf-icon"><i class="bi bi-tree"></i></span>
-                    Madera natural seleccionada
-                  </li>
-                  <li>
-                    <span class="plf-icon"><i class="bi bi-tools"></i></span>
-                    Instalación profesional incluida
-                  </li>
-                  <li>
-                    <span class="plf-icon"><i class="bi bi-shield-check"></i></span>
-                    Garantía real
-                  </li>
-                </ul>
-
-                <!-- Botones dentro del contenido -->
-                <div class="producto-landing-actions">
-                  <a href="{% url 'detalle_producto' producto.id %}" class="pl-btn-secondary">
-                    <i class="bi bi-images"></i> Ver trabajos
-                  </a>
-                  <a href="#end" class="pl-btn-primary">
-                    Cotizar <i class="bi bi-arrow-right"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-
+          <!-- Mitad izquierda: imagen full bleed -->
+          <div class="pl-split__img">
+            <img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}" loading="lazy">
+            <span class="pl-split__badge">Desde 1980</span>
           </div>
+
+          <!-- Mitad derecha: contenido -->
+          <div class="pl-split__body">
+            <p class="pl-split__eyebrow">Producto destacado</p>
+            <h3 class="pl-split__title">{{ producto.nombre }}</h3>
+            <p class="pl-split__desc">{{ producto.descripcion }}</p>
+
+            <ul class="pl-split__list">
+              <li><span class="pl-split__icon"><i class="bi bi-rulers"></i></span> Fabricadas a medida</li>
+              <li><span class="pl-split__icon"><i class="bi bi-tree"></i></span> Madera natural seleccionada</li>
+              <li><span class="pl-split__icon"><i class="bi bi-tools"></i></span> Instalación profesional</li>
+              <li><span class="pl-split__icon"><i class="bi bi-shield-check"></i></span> Garantía real</li>
+            </ul>
+
+            <div class="pl-split__actions">
+              <a href="{% url 'detalle_producto' producto.id %}" class="pl-split__btn--outline">
+                <i class="bi bi-images"></i> Ver trabajos
+              </a>
+              <a href="#end" class="pl-split__btn--fill">
+                Cotizar <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
         </div>
       {% endfor %}
 
@@ -300,6 +273,70 @@
           <li class="d-flex align-items-start"><i class="bi bi-check-circle-fill text-madera me-2 fs-5"></i><span>Servicio integral: medición, fabricación e instalación.</span></li>
         </ul>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICIO TÉCNICO ============ -->
+<section id="servicio-tecnico">
+  <div class="container">
+    <div class="mb-5 text-center reveal">
+      <p class="section-label">Mantenimiento y Reparación</p>
+      <h2 class="fw-bold">Servicio Técnico Especializado</h2>
+      <p class="mt-3 text-muted mx-auto" style="max-width: 600px;">
+        Damos nueva vida a tus cortinas de madera con personal experto y materiales de primera calidad. 
+      </p>
+    </div>
+
+    <!-- Grid de Servicios Técnicos -->
+    <div class="st-grid">
+      <!-- Item 1: Barnizado -->
+      <div class="st-card reveal reveal-delay-1">
+        <div class="st-icon-wrap">
+          <i class="bi bi-brush"></i>
+        </div>
+        <h5>Barnizado y Restauración</h5>
+        <p>Recuperamos el brillo y el tono original de la madera protegiéndola contra la humedad y el sol.</p>
+      </div>
+
+      <!-- Item 2: Cordones -->
+      <div class="st-card reveal reveal-delay-2">
+        <div class="st-icon-wrap">
+          <i class="bi bi-layers-half"></i>
+        </div>
+        <h5>Cambio de Cordones</h5>
+        <p>Reemplazamos sistemas de cuerda desgastados por materiales de alta resistencia y durabilidad.</p>
+      </div>
+
+      <!-- Item 3: Poleas -->
+      <div class="st-card reveal reveal-delay-3">
+        <div class="st-icon-wrap">
+          <i class="bi bi-gear-wide-connected"></i>
+        </div>
+        <h5>Mecanismos y Poleas</h5>
+        <p>Reparamos frenos, cabezales y poleas para un funcionamiento suave y sin esfuerzos.</p>
+      </div>
+
+      <!-- Item 4: Limpieza -->
+      <div class="st-card reveal reveal-delay-4">
+        <div class="st-icon-wrap">
+          <i class="bi bi-stars"></i>
+        </div>
+        <h5>Limpieza Profunda</h5>
+        <p>Tratamiento especializado para eliminar polvo acumulado e hidratar las lamas de madera.</p>
+      </div>
+    </div>
+
+    <!-- CTA Box -->
+    <div class="st-cta-box reveal">
+      <div class="st-cta-text">
+        <h4>¿Tus cortinas necesitan atención?</h4>
+        <p class="mb-0 opacity-75">Solicita hoy tu presupuesto de reparación sin costo.</p>
+      </div>
+      <a href="https://wa.me/56995904690?text=Hola,%20necesito%20servicio%20técnico%20para%20mis%20cortinas." 
+         class="st-cta-btn" target="_blank" rel="noopener">
+        Hablar con Técnico
+      </a>
     </div>
   </div>
 </section>

@@ -1426,3 +1426,119 @@ footer .list-inline-item a:hover {
   .pl-split__img { height: 320px; }
   .pl-split__body { padding: 2.5rem 2rem; }
 }
+
+/* ==============================================
+   SECCIÓN SERVICIO TÉCNICO
+   ============================================== */
+#servicio-tecnico {
+  background: var(--color-bg-2);
+  position: relative;
+  overflow: hidden;
+  padding: 6rem 0;
+}
+
+.st-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.st-card {
+  background: #fff;
+  border-radius: var(--radius-md);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  border: 1px solid rgba(124, 74, 30, 0.08);
+  transition: all var(--duration) var(--ease);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+}
+
+.st-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(124, 74, 30, 0.12);
+  border-color: var(--color-accent);
+}
+
+.st-icon-wrap {
+  width: 65px;
+  height: 65px;
+  background: var(--color-bg-2);
+  color: var(--color-primary);
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  font-size: 1.8rem;
+  transition: all var(--duration) var(--ease);
+}
+
+.st-card:hover .st-icon-wrap {
+  background: var(--grad-primary);
+  color: #fff;
+  box-shadow: 0 8px 16px rgba(124, 74, 30, 0.3);
+}
+
+.st-card h5 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+  font-size: 1.25rem;
+}
+
+.st-card p {
+  color: var(--color-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.st-cta-box {
+  background: var(--grad-primary);
+  border-radius: var(--radius-md);
+  padding: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 4rem;
+  color: #fff;
+  box-shadow: 0 20px 40px rgba(124, 74, 30, 0.2);
+}
+
+.st-cta-text h4 {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+}
+
+.st-cta-btn {
+  background: #fff;
+  color: var(--color-primary);
+  padding: 1rem 2.5rem;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  text-decoration: none;
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all var(--duration) var(--ease);
+  display: inline-block;
+}
+
+.st-cta-btn:hover {
+  background: var(--color-accent-2);
+  color: var(--color-primary);
+  transform: scale(1.05);
+  box-shadow: 0 8px 24px rgba(255,255,255,0.2);
+}
+
+@media (max-width: 768px) {
+  .st-cta-box {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+    padding: 2.5rem 1.5rem;
+  }
+}
+
