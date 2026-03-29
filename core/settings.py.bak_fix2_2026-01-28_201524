@@ -115,7 +115,7 @@ WSGI_APPLICATION = "core.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": os.environ.get("MYSQL_NAME", "CarlosPython$default"),
+        "NAME": os.environ.get("MYSQL_NAME"),
         "USER": os.environ.get("MYSQL_USER"),
         "PASSWORD": os.environ.get("MYSQL_PASSWORD"),
         "HOST": os.environ.get("MYSQL_HOST"),
@@ -206,20 +206,18 @@ try:
 except Exception:
     pass
 
+
 # ===== FINAL OVERRIDE PYTHONANYWHERE MYSQL NAME =====
 # Si estás en MySQL de PythonAnywhere y NO hay env var, usa el nombre correcto con $default.
 try:
     _db = DATABASES.get("default", {})
     _host = (_db.get("HOST") or "")
     _engine = (_db.get("ENGINE") or "")
-
-    if ("mysql" in _engine) and _host.endswith(".mysql.pythonanywhere-services.com"):
+    if "mysql" in _engine and _host.endswith(".mysql.pythonanywhere-services.com"):
         _db["NAME"] = os.environ.get("MYSQL_NAME") or "CarlosPython$default"
         _db["USER"] = os.environ.get("MYSQL_USER") or _db.get("USER") or "CarlosPython"
-        _db["PASSWORD"] = os.environ.get("MYSQL_PASSWORD") or _db.get("PASSWORD") or ""
         _db["HOST"] = os.environ.get("MYSQL_HOST") or _db.get("HOST") or "CarlosPython.mysql.pythonanywhere-services.com"
         _db["PORT"] = os.environ.get("MYSQL_PORT") or _db.get("PORT") or "3306"
         DATABASES["default"] = _db
 except Exception:
     pass
-
