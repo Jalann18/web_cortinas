@@ -1,167 +1,298 @@
 /* =======================
-  BASE
+   DETALLE PRODUCTO — MODERNO
 ======================= */
-body{
-  font-family: 'Poppins', sans-serif;
+
+:root {
+  --color-primary:   #7C4A1E;
+  --color-primary-2: #A0622C;
+  --color-accent:    #C8885A;
+  --color-bg:        #FDFAF7;
+  --color-bg-2:      #F5EDE3;
+  --color-muted:     #7B6B5D;
+  --color-dark:      #1A0F07;
+  --color-gold:      #C9A96E;
+  --grad-primary:    linear-gradient(135deg, #7C4A1E, #A0622C);
+  --shadow-md:       0 8px 24px rgba(124, 74, 30, 0.14);
+  --shadow-lg:       0 20px 48px rgba(124, 74, 30, 0.2);
+  --radius-sm:       6px;
+  --radius-md:       12px;
+  --radius-lg:       20px;
+  --font-heading:    'Poppins', sans-serif;
+  --font-body:       'Montserrat', sans-serif;
+  --duration:        0.28s;
+  --ease:            cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* =======================
-  GALERÍA
+   BASE
 ======================= */
-.gallery-item{
-  cursor: pointer;
-  overflow: hidden;
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-dark);
+  -webkit-font-smoothing: antialiased;
 }
 
-.gallery-item img{
+/* =======================
+   HEADER BANNER
+======================= */
+header.bg-dark {
+  position: relative;
+  overflow: hidden;
+}
+header.bg-dark .position-relative {
+  height: 45vh;
+}
+header.bg-dark img {
+  object-fit: cover;
+  transition: transform 8s ease;
+}
+header.bg-dark:hover img {
+  transform: scale(1.04);
+}
+/* Overlay con gradiente premium */
+header.bg-dark .bg-dark.bg-opacity-50 {
+  background: linear-gradient(
+    160deg,
+    rgba(28, 14, 5, 0.78) 0%,
+    rgba(124, 74, 30, 0.45) 100%
+  ) !important;
+  opacity: 1 !important;
+}
+header h1,
+header h2 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+header .lead {
+  color: rgba(255,255,255,0.80);
+  font-size: 1rem;
+}
+
+/* =======================
+   GALERÍA
+======================= */
+.gallery-item {
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 2px 8px rgba(124, 74, 30, 0.08);
+  transition: box-shadow var(--duration) var(--ease);
+}
+.gallery-item:hover {
+  box-shadow: var(--shadow-md);
+}
+.gallery-item img {
   width: 100%;
   height: 220px;
   object-fit: cover;
-  transition: transform .3s ease;
+  transition: transform 0.45s var(--ease);
 }
-
-.gallery-item:hover img{
+.gallery-item:hover img {
   transform: scale(1.1);
 }
-
-/* Overlay scopiado */
-.gallery-item .overlay{
+.gallery-item .overlay {
   position: absolute;
   inset: 0;
-  background-color: rgba(0,0,0,0.4);
+  background: linear-gradient(
+    180deg,
+    transparent 40%,
+    rgba(28,16,7,0.65) 100%
+  );
   opacity: 0;
-  transition: opacity .3s ease;
+  transition: opacity 0.35s var(--ease);
 }
-
-.gallery-item:hover .overlay{
+.gallery-item:hover .overlay {
   opacity: 1;
 }
-
-.gallery-item .overlay i{
+.gallery-item .overlay i {
   color: #fff;
   font-size: 2rem;
 }
 
-/* =======================
-  MODAL IMAGEN (IGUAL HOME)
-  - El “all: unset” evita que Bootstrap te lo deje como botón cuadrado
-======================= */
-#modalImagen{
-  --nav-size: 38px;
-  --nav-radius: 8px;
-  --nav-bd: 1px solid rgba(255,255,255,.75);
-  --close-size: 34px;
+/* Botón de cotización */
+.btn-outline-primary {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+  border-width: 2px;
+  border-radius: var(--radius-sm);
+  padding: 0.9rem 2.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: color var(--duration) var(--ease),
+              transform var(--duration) var(--ease);
+}
+.btn-outline-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--color-primary);
+  z-index: -1;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--duration) var(--ease);
+}
+.btn-outline-primary:hover {
+  color: #fff !important;
+  border-color: var(--color-primary) !important;
+  transform: translateY(-2px);
+}
+.btn-outline-primary:hover::before {
+  transform: scaleX(1);
 }
 
-#modalImagen .modal-dialog{
+/* =======================
+   SECCIÓN COLORES
+======================= */
+.colores h2 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-primary);
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid #E2B48A;
+}
+.colores .rounded-circle {
+  transition: transform var(--duration) var(--ease),
+              box-shadow var(--duration) var(--ease);
+}
+.colores .rounded-circle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(124, 74, 30, 0.25) !important;
+}
+.colores .fw-semibold {
+  font-family: var(--font-heading);
+  color: var(--color-muted);
+  font-size: 0.92rem;
+}
+.colores .btn-outline-dark {
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 1.2rem;
+  transition: all var(--duration) var(--ease);
+}
+.colores .btn-outline-dark:hover {
+  background: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
+}
+
+/* =======================
+   MODAL IMAGEN
+======================= */
+#modalImagen {
+  --nav-size:   40px;
+  --nav-radius: var(--radius-sm);
+  --nav-bd:     1px solid rgba(255,255,255,0.5);
+  --close-size: 34px;
+}
+#modalImagen .modal-dialog {
   max-width: 92vw;
   margin: 1.5rem auto;
 }
-
-#modalImagen .modal-body{
+#modalImagen .modal-body {
   padding: 0;
   text-align: center;
-  overflow: hidden; /* sin scroll interno */
+  overflow: hidden;
 }
-
-/* wrap = ancho real de la imagen */
-#modalImagen .modal-image-wrap{
+#modalImagen .modal-image-wrap {
   position: relative;
   display: inline-block;
   max-width: 100%;
-  line-height: 0; /* ✅ elimina espacios/“saltos” raros */
+  line-height: 0;
 }
-
-#modalImagen #imagenExpandida{
+#modalImagen #imagenExpandida {
   max-width: 100%;
   max-height: 90vh;
   object-fit: contain;
   display: block;
+  border-radius: var(--radius-sm);
 }
 
-/* Flechas pegadas a la imagen */
-#modalImagen .modal-nav{
-  all: unset;              /* ✅ mata el botón cuadrado por defecto */
+/* Flechas */
+#modalImagen .modal-nav {
+  all: unset;
   cursor: pointer;
-
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-
   width: var(--nav-size);
   height: var(--nav-size);
-
   border: var(--nav-bd);
   border-radius: var(--nav-radius);
-
-  background: transparent;
-  box-shadow: none;
-  backdrop-filter: none;
-
+  background: rgba(0,0,0,0.3);
+  backdrop-filter: blur(6px);
   color: #fff;
   display: grid;
   place-items: center;
   z-index: 5;
-
-  opacity: .9;
-  transition: opacity .12s ease, transform .12s ease, background-color .12s ease;
+  opacity: 0.88;
+  transition: opacity var(--duration) var(--ease),
+              background var(--duration) var(--ease),
+              transform var(--duration) var(--ease);
 }
-
-#modalImagen .modal-prev{ left: 10px; }
-#modalImagen .modal-next{ right: 10px; }
-
-#modalImagen .modal-nav:hover{
-  background-color: rgba(255,255,255,.10);
+#modalImagen .modal-prev { left: 10px; }
+#modalImagen .modal-next { right: 10px; }
+#modalImagen .modal-nav:hover {
+  background: rgba(124, 74, 30, 0.7);
   opacity: 1;
-  transform: translateY(-50%) scale(1.03);
+  transform: translateY(-50%) scale(1.08);
 }
-
-#modalImagen .modal-nav:active{
-  transform: translateY(-50%) scale(.98);
+#modalImagen .modal-nav:active {
+  transform: translateY(-50%) scale(0.98);
 }
-
-#modalImagen .modal-nav:focus-visible{
+#modalImagen .modal-nav:focus-visible {
   outline: 2px solid rgba(255,255,255,.85);
   outline-offset: 3px;
 }
-
-#modalImagen .modal-nav i{
-  font-size: 1.6rem;
+#modalImagen .modal-nav i {
+  font-size: 1.4rem;
   line-height: 1;
-  text-shadow: none;
 }
 
-/* X fija sin caja */
-#modalImagen .modal-close-fixed{
+/* Botón cerrar */
+#modalImagen .modal-close-fixed {
   position: fixed;
   top: 14px;
   right: 14px;
   z-index: 3000;
-
   width: var(--close-size);
   height: var(--close-size);
-
   padding: 0;
   margin: 0;
-
   border: 0 !important;
-  border-radius: 0 !important;
-  background-color: transparent !important;
+  border-radius: 50% !important;
+  background-color: rgba(0,0,0,0.5) !important;
   box-shadow: none !important;
-  backdrop-filter: none !important;
-
+  backdrop-filter: blur(4px);
   opacity: 1;
+  transition: background var(--duration) var(--ease);
 }
-
-/* X blanca blindada */
-#modalImagen .btn-close.btn-close-white.modal-close-fixed{
+#modalImagen .modal-close-fixed:hover {
+  background-color: rgba(124, 74, 30, 0.8) !important;
+}
+#modalImagen .btn-close.btn-close-white.modal-close-fixed {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 70% 70%;
+  background-size: 60% 60%;
   opacity: 1;
 }
-
-#modalImagen .modal-close-fixed:hover{
-  opacity: .85;
+#modalImagen .modal-close-fixed:focus-visible {
+  outline: 2px solid rgba(255,255,255,.85);
+  outline-offset: 3px;
 }

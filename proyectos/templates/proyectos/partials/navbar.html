@@ -1,5 +1,5 @@
 {% load static %}
-<nav class="navbar navbar-expand-lg navbar-light fixed-top shadow" style="background-color: #f0f0f0;">
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="main-navbar">
   <div class="container-fluid d-flex justify-content-between align-items-center">
     <a class="navbar-brand me-auto" href="{% url 'home' %}">
       <img src="{% static 'proyectos/logo_ccs.png' %}" alt="Cortinas Hanga Roa logo" class="logo-navbar">
@@ -16,3 +16,9 @@
     </div>
   </div>
 </nav>
+<script>
+  const _nav = document.getElementById('main-navbar');
+  window.addEventListener('scroll', () => {
+    _nav?.classList.toggle('scrolled', window.scrollY > 40);
+  });
+</script>
