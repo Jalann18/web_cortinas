@@ -527,6 +527,15 @@
     navbar?.classList.toggle('scrolled', window.scrollY > 40);
   });
 
+  // Mobile menu open -> solid navbar
+  const navbarCollapse = document.getElementById('navbarNav');
+  navbarCollapse?.addEventListener('show.bs.collapse', () => {
+    navbar.classList.add('mobile-menu-open');
+  });
+  navbarCollapse?.addEventListener('hide.bs.collapse', () => {
+    navbar.classList.remove('mobile-menu-open');
+  });
+
   // Scroll reveal animation
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(e => {
