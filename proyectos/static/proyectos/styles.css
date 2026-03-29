@@ -462,7 +462,7 @@ body {
    ============================================== */
 #servicios {
   position: relative;
-  background: url('/static/proyectos/fondo-servicios.jpg') fixed center/cover no-repeat;
+  background: url('/static/proyectos/fondo-servicios.jpg') center/cover no-repeat;
   color: #fff;
   overflow: hidden;
   padding: 6rem 0;
@@ -489,12 +489,10 @@ body {
   margin-top: 0.4rem;
 }
 
-/* Tarjetas de servicio — glassmorphism */
+/* Tarjetas de servicio — glass sin backdrop-filter (perf) */
 #servicios .card {
-  background: rgba(255, 255, 255, 0.07) !important;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  background: rgba(255, 255, 255, 0.10) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
   border-radius: var(--radius-md) !important;
   color: #fff;
   padding: 0.5rem;
@@ -503,7 +501,7 @@ body {
               box-shadow var(--duration) var(--ease);
 }
 #servicios .card:hover {
-  background: rgba(255,255,255,0.14) !important;
+  background: rgba(255,255,255,0.18) !important;
   transform: translateY(-8px) !important;
   box-shadow: 0 16px 40px rgba(0,0,0,0.25) !important;
 }
@@ -653,7 +651,7 @@ body {
    ============================================== */
 #end {
   position: relative;
-  background: url('/static/proyectos/ph2.jpg') fixed center/cover no-repeat;
+  background: url('/static/proyectos/ph2.jpg') center/cover no-repeat;
   min-height: 70vh;
   padding: 6rem 0;
   color: #fff;
@@ -680,8 +678,7 @@ body {
 
 /* Accordion FAQ */
 #faqAccordion .accordion-item {
-  background: rgba(255,255,255,0.07);
-  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,0.09);
   border: 1px solid rgba(255,255,255,0.15) !important;
   border-radius: var(--radius-sm) !important;
   margin-bottom: 0.5rem;
@@ -712,8 +709,7 @@ body {
 
 /* Formulario de contacto */
 #end .p-4.rounded.shadow-sm {
-  background: rgba(255,255,255,0.06) !important;
-  backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.08) !important;
   border: 1px solid rgba(255,255,255,0.14) !important;
   border-radius: var(--radius-md) !important;
   box-shadow: 0 12px 40px rgba(0,0,0,0.25) !important;
