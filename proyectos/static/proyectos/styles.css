@@ -181,7 +181,7 @@ body {
     transform-origin: left center;
   }
   .navbar.scrolled .logo-navbar {
-    transform: scale(1);
+    transform: scale(1.6);
   }
 }
 
@@ -1650,6 +1650,11 @@ footer .list-inline-item a:hover {
   font-family: var(--font-heading);
   font-weight: 700;
   margin-bottom: 1rem;
+  color: var(--color-text); /* Explicitly dark text */
+}
+.srv-card p {
+  color: var(--color-muted);
+  margin-bottom: 0;
 }
 
 /* ==============================================
