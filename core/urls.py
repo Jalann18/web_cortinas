@@ -6,8 +6,12 @@ from django.conf import settings
 from django.conf.urls.static import static
 from pathlib import Path
 
+from proyectos.views import robots_txt, sitemap_xml
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('robots.txt', robots_txt, name='robots_txt'),
+    path('sitemap.xml', sitemap_xml, name='sitemap_xml'),
     path('', include('proyectos.urls')),
 ]
 

@@ -5,6 +5,9 @@ from django.contrib import messages
 from django.shortcuts import render, redirect, get_object_or_404
 from django.conf import settings
 from django.core.mail import send_mail
+from django.http import HttpResponse
+from django.urls import reverse
+from django.core.mail import send_mail
 
 def home(request):
     form = MensajeForm()
@@ -44,3 +47,28 @@ def detalle_producto(request, producto_id):
         'producto': producto,
         'imagenes': imagenes
     })
+
+def robots_txt(request):
+    lines = [
+        "User-agent: *",
+        "Allow: /",
+        "",
+        f"Sitemap: {request.build_absolute_uri('/sitemap.xml')}"
+    ]
+    return HttpResponse("\n".join(lines), content_type="text/plain")
+
+def sitemap_xml(request):
+    host = request.scheme + "://" + request.get_host()
+    
+    urls = [
+        f"<url><loc>{host}/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>"
+    ]
+    
+    productos = Producto.objects.all()
+    for p in productos:
+        url = host + reverse('detalle_producto', args=[p.id])
+        urls.append(f"<url><loc>{url}</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>")
+        
+    xml = f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{"".join(urls)}\n</urlset>'
+    
+    return HttpResponse(xml, content_type="application/xml")

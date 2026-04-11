@@ -6,8 +6,35 @@
     <!-- Clave para móviles -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>{{ producto.nombre }} – Cortinas CCS</title>
+    <!-- SEO Básico -->
+    <title>{{ producto.nombre }} a Medida | Cortinas Hanga Roa</title>
+    <meta name="description" content="{{ producto.descripcion|truncatechars:155 }}">
+    <meta name="keywords" content="{{ producto.nombre }}, Cortinas Hanga Roa, Hangaroa, cortinas a medida, cortinas de madera">
     <link rel="icon" type="image/png" href="{% static 'proyectos/logo_ccs.png' %}">
+
+    <!-- SCHEMA JSON-LD PRODUCT -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Product",
+      "name": "{{ producto.nombre }}",
+      "image": [
+        "https://www.hanga-roa.cl{{ producto.imagen.url }}"
+      ],
+      "description": "{{ producto.descripcion|escapejs }}",
+      "brand": {
+        "@type": "Brand",
+        "name": "Cortinas Hanga Roa"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://www.hanga-roa.cl{% url 'detalle_producto' producto.id %}",
+        "priceCurrency": "CLP",
+        "price": "Cotizar",
+        "availability": "https://schema.org/InStock"
+      }
+    }
+    </script>
 
     <!-- Tipografías (una sola petición) -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
