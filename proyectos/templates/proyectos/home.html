@@ -437,6 +437,15 @@
       <div class="col-lg-6">
         <div class="p-4 rounded shadow-sm">
           <h3 class="mb-4 text-center text-white">Contáctanos</h3>
+          <!-- Teléfono destacado -->
+          <div class="contact-phone-card mb-4">
+            <div class="contact-phone-card__icon"><i class="bi bi-telephone-fill"></i></div>
+            <div class="contact-phone-card__body">
+              <span class="contact-phone-card__label">Llámanos o escríbenos</span>
+              <a href="https://wa.me/56995904690?text=Hola,%20quiero%20cotizar%20cortinas!!!" class="contact-phone-card__number" target="_blank" rel="noopener">+56 9 9590 4690</a>
+            </div>
+            <i class="bi bi-whatsapp contact-phone-card__wa"></i>
+          </div>
           {% if messages %}
           <div class="alert alert-success text-center">
             {% for m in messages %}{{ m }}{% endfor %}
@@ -498,10 +507,15 @@
 
       <div class="col-lg-3">
         <h5>Canales de atención</h5>
-        <ul class="list-inline">
+        <!-- Teléfono / WhatsApp -->
+        <a href="https://wa.me/56995904690?text=Hola,%20quiero%20cotizar%20cortinas!!!" class="footer-phone-btn mb-3 d-inline-flex align-items-center gap-2 text-decoration-none" target="_blank" rel="noopener">
+          <i class="bi bi-telephone-fill"></i>
+          <span>+56 9 9590 4690</span>
+        </a>
+        <ul class="list-inline mt-2">
           <li class="list-inline-item"><a href="#" class="text-light fs-4"><i class="bi bi-facebook"></i></a></li>
           <li class="list-inline-item"><a href="#" class="text-light fs-4"><i class="bi bi-instagram"></i></a></li>
-          <li class="list-inline-item"><a href="https://wa.me/56995904690?text=Hola,%20quiero%20cotizar%20cortinas!!!" class="text-light fs-4"><i class="bi bi-whatsapp"></i></a></li>
+          <li class="list-inline-item"><a href="https://wa.me/56995904690?text=Hola,%20quiero%20cotizar%20cortinas!!!" class="text-light fs-4" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i></a></li>
         </ul>
       </div>
     </div>
